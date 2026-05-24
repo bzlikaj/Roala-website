@@ -154,9 +154,14 @@ a { text-decoration: none; color: inherit; }
   font-size: 0.78rem;
   font-weight: 800;
   color: var(--text-muted);
-  font-family: 'Nunito', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Apple Color Emoji', sans-serif;
+  font-family: 'Nunito', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
   transition: var(--transition);
   letter-spacing: 0.5px;
+}
+.lang-btn .flag {
+  font-family: 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji', 'Apple Color Emoji', sans-serif;
+  line-height: 1;
+  margin-right: 0.35rem;
 }
 .lang-btn.active,
 .lang-btn:hover {
