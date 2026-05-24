@@ -595,11 +595,11 @@ function updateInternalLinks(lang) {
   document.querySelectorAll('a[href]').forEach(el => {
     const href = el.getAttribute('href');
     if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.match(/^[a-z]+:/i)) return;
-    if (!href.endsWith('.html') && href.indexOf('.html?') === -1) return;
+    if (!href.match(/\.html($|[?#])/i)) return;
     try {
       const url = new URL(href, window.location.href);
       url.searchParams.set('lang', lang);
-      el.setAttribute('href', url.pathname + url.search);
+      el.setAttribute('href', url.pathname + url.search + url.hash);
     } catch (e) {}
   });
 }
@@ -622,9 +622,12 @@ function setLang(lang) {
 function detectLang() {
   const urlLang = getLangFromURL();
   if (urlLang) return urlLang;
-  var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-  if (lang.startsWith('sq') || lang.startsWith('al')) return 'al';
-  if (lang.startsWith('it')) return 'it';
+  const langs = (navigator.languages || []).concat(navigator.language || navigator.userLanguage || 'en');
+  for (const lang of langs) {
+    const value = (lang || '').toLowerCase();
+    if (value.startsWith('sq') || value.startsWith('al')) return 'al';
+    if (value.startsWith('it')) return 'it';
+  }
   return 'en';
 }
 
