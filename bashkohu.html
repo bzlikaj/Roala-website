@@ -81,7 +81,27 @@
       transition: transform 0.3s ease;
     }
     .why-card:hover { transform: translateY(-4px); }
-    .why-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .why-icon {
+      position: relative;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 3rem;
+      height: 3rem;
+    }
+    .why-icon.why-icon-zero::after {
+      content: '✖';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: var(--pink-dark);
+      pointer-events: none;
+    }
     .why-title { font-weight: 800; font-size: 1rem; color: var(--plum); margin-bottom: 0.5rem; }
     .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
@@ -256,7 +276,7 @@
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-icon">�</div>
+        <div class="why-icon why-icon-zero">💰</div>
         <div class="why-title" data-i18n="why.card1.title">Zero Investime</div>
         <div class="why-desc" data-i18n="why.card1.desc">Fillo biznesin tënd pa investime fillestare. Regjistrimi është falas dhe nuk ka rrezik financiar.</div>
       </div>
