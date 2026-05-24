@@ -1,0 +1,82 @@
+Canva — Testi e istruzioni per 6 slide
+Sito da promuovere: https://roala.netlify.app
+Formato consigliato: quadrato 1080x1080 (post/carousel) / verticale 1080x1920 (stories/reel)
+Palette: rosa #D4789A, prugna #7B3F6E, crema #FDF5F3
+Font: Playfair Display (titoli), Nunito (corpo testo)
+
+Slide 01 — Copertina
+- Titolo: Roala Kodheli
+- Sottotitolo: Distributrice Autorizzata Snep · Diamond Black
+- Testo: Scopri prodotti di bellezza e benessere selezionati per la tua routine quotidiana.
+- CTA: Scopri di più → Link in bio
+- Immagine suggerita: WhatsApp Image 2026-05-19 at 19.59.47.jpeg (ritratto tondo centrato)
+- Layout: profilo tondo centrato in alto, titolo grande al centro, badge piccolo "💎 Diamond Black" in alto a sinistra.
+- Alt text: Ritratto sorridente di Roala Kodheli, distributrice autorizzata Snep.
+- Note di conformità: non inserire claim medici o terapeutici.
+
+Slide 02 — Chi sono
+- Titolo: Chi sono
+- Testo: Ciao, sono Roala Kodheli. Dal 2022 accompagno chi cerca prodotti di qualità per la cura della pelle e del benessere. Scopri la mia storia sul sito.
+- CTA: Leggi la mia storia → https://roala.netlify.app
+- Immagine: foto profilo + foto generica lifestyle (opzionale)
+- Compliance: evitare qualsiasi linguaggio che suggerisca cure o guarigioni.
+ 
+Versione AL (descrizione fornita dall'utente):
+- Ofroj programe bimore, te certifikuara dhe Made in Italy qe te ndihmojne ne procesin e humbjes se peshes.
+
+Qe nga nentori 2022, kam ndihmuar mijera kliente te kthehen ne forme, te eliminojne kilet e teperta, fryerjen etj... pa bere dieta drastike dhe pa stres.
+
+Nese po kerkon nje metode te thjeshte dhe efikase per t’u rikthyer ne forme, 
+jam personi i duhur qe mundet te te ndihmoje.
+
+Me shkruaj ne privat per te bere nje konsulte se bashku.
+
+Slide 03 — I miei preferiti
+- Titolo: I miei preferiti
+- Card 1: [Nome Prodotto A] — Texture leggera per pelle luminosa
+- Card 2: [Nome Prodotto B] — Formula nutriente per uso quotidiano
+- Testo aggiuntivo: Vedi ingredienti e modalità d'uso sul sito.
+- CTA: Vedi prodotti → https://roala.netlify.app/prodotti
+- Alt text prodotto: Packaging di [Nome Prodotto] su sfondo neutro.
+- Nota: non usare "cura", "guarisce" o claim sanitari.
+
+Slide 04 — Come acquistare
+- Titolo: Come acquistare
+- Testo: Visita il sito per ordini e informazioni. Pagamenti sicuri; spedizioni disponibili. Per assistenza contattami tramite la pagina contatti.
+- CTA: Ordina ora → https://roala.netlify.app
+- Note legali: link a termini e condizioni / spedizioni.
+
+Slide 05 — Unisciti a noi (opzionale)
+- Titolo: Vuoi saperne di più sul team?
+- Testo: Se sei curiosa/o di conoscere l'opportunità con Snep, contattami per una chiacchierata informativa. Nessuna promessa di guadagni.
+- CTA: Info collaborazione → https://roala.netlify.app/contatti
+- Compliance: evitare promesse di reddito o risultati garantiti.
+
+Slide 06 — Chiusura & Disclaimer
+- Titolo: Seguimi per consigli
+- Testo: Visita il sito • Link in bio • Contatti sul sito. I risultati individuali possono variare. Questo contenuto non è un consiglio medico.
+- CTA: Link in bio → https://roala.netlify.app
+- Alt text: Logo Snep (se autorizzato) + link al sito.
+
+Istruzioni grafiche generali
+- Mantieni testo leggibile (contrasto alto), evita troppo testo nelle immagini.
+- Usa il ritratto tondo (file: WhatsApp Image 2026-05-19 at 19.59.47.jpeg) per slide 1 e 2.
+- Prodotti: foto su sfondo bianco, luce naturale, inquadrature frontali.
+- Logo Snep: usarlo solo se hai autorizzazione e rispetto del brand.
+- Accessibilità: aggiungi alt text per ogni immagine; per video aggiungi sottotitoli.
+
+Note di conformità (essenziali)
+- Non fare claim medici o terapeutici (es. "cura", "guarisce").
+- Non promettere guadagni o risultati economici.
+- Evita before/after che mostrino risultati clinici non verificati.
+- Se usi testimonianze: aggiungi "I risultati individuali possono variare".
+
+File suggeriti per Canva
+- slide-01-cover.png (1080x1080)
+- slide-02-about.png
+- slide-03-products.png
+- slide-04-buy.png
+- slide-05-join.png
+- slide-06-disclaimer.png
+
+Vuoi che generi anche i file PNG o un file PowerPoint/PDF pronto da scaricare?
