@@ -1,0 +1,676 @@
+﻿<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roala Kodheli — Në Formë në 360°</title>
+  <meta name="description" content="Roala Kodheli · Distributore e Autorizuar Snep S.p.A. — Programe bimore, të certifikuara dhe Made in Italy për humbje peshe pa stres."/>
+  <link rel="stylesheet" href="style.css"/>
+  <script>if(localStorage.getItem('snep_v')!=='2'){Object.keys(localStorage).filter(k=>k.startsWith('snep-snap')).forEach(k=>localStorage.removeItem(k));localStorage.setItem('snep_v','2');}</script>
+  <style>
+    .category-label {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--pink), var(--plum));
+      color: white;
+      padding: 0.22rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .product-card .product-icon.ushqim   { background: linear-gradient(135deg, #FFF0E0, #FFD4B0); }
+    .product-card .product-icon.personal { background: linear-gradient(135deg, #FFE8F3, #F0D0FF); }
+    .product-card .product-icon.mjedis   { background: linear-gradient(135deg, #E0F5E8, #C0EAD0); }
+    .features-list { list-style: none; margin: 1rem 0 0; text-align: left; }
+    .features-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.88rem; color: var(--text-muted);
+      padding: 0.35rem 0; border-bottom: 1px solid rgba(212,120,154,0.08);
+    }
+    .features-list li:last-child { border-bottom: none; }
+    .features-list li::before {
+      content: '✓'; color: var(--pink); font-weight: 800;
+      font-size: 0.9rem; flex-shrink: 0; margin-top: 0.05rem;
+    }
+    .benefits-strip {
+      display: flex; gap: 1.5rem; flex-wrap: wrap;
+      justify-content: center; padding: 2rem;
+      background: white; border-radius: var(--radius); box-shadow: var(--shadow-sm);
+    }
+    .benefits-strip-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.88rem; font-weight: 700; color: var(--plum);
+    }
+    .quote-banner {
+      background: linear-gradient(135deg, var(--plum) 0%, var(--pink-dark) 100%);
+      border-radius: var(--radius); padding: 2.5rem 3rem;
+      text-align: center; color: white; position: relative;
+      overflow: hidden; margin: 3rem 0 0;
+    }
+    .quote-banner::before {
+      content: '\201C'; position: absolute; top: -1rem; left: 1.5rem;
+      font-family: 'Playfair Display', serif; font-size: 10rem; line-height: 1;
+      color: rgba(255,255,255,0.08);
+    }
+    .quote-banner p {
+      position: relative; z-index: 1; font-size: 1.15rem; font-style: italic;
+      font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.92);
+      max-width: 700px; margin: 0 auto 0.75rem;
+    }
+    .quote-banner cite {
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+      font-style: normal; font-weight: 700; letter-spacing: 1px;
+    }
+    .promo-grid {
+      display: grid; gap: 1.5rem; max-width: 1140px; margin: 0 auto;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    @media (min-width: 900px) {
+      .promo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (min-width: 1300px) {
+      .promo-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+    .promo-card {
+      display: flex; flex-direction: column; gap: 0; background: linear-gradient(180deg, #fff 0%, #fcf7ff 100%);
+      border-radius: calc(var(--radius) + 4px); box-shadow: 0 24px 60px rgba(90, 0, 80, 0.12);
+      overflow: hidden; position: relative; border: 1px solid rgba(255, 88, 170, 0.16);
+      text-align: left;
+    }
+    .promo-card::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(circle at top right, rgba(255, 70, 179, 0.15), transparent 32%);
+    }
+    .promo-image-wrapper {
+      width: 100%; height: 360px; background: #f8f3fb;
+      display: flex; align-items: center; justify-content: center;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+    .promo-card img {
+      width: auto; height: 100%; max-width: 100%; max-height: 100%;
+      object-fit: contain; display: block;
+    }
+    .promo-note {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.85rem 1.2rem;
+      background: linear-gradient(135deg, #ff5a97, #ffb16a);
+      color: white;
+      font-weight: 700;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 16px 35px rgba(255, 90, 150, 0.15);
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+      transform-origin: center center;
+      animation: promo-note-pulse 2s ease-in-out infinite;
+    }
+    @keyframes promo-note-pulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+      20% { transform: scale(1.25); filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.75)); }
+      35% { transform: scale(1.4); filter: drop-shadow(0 0 28px rgba(255, 255, 255, 0.85)); }
+      55% { transform: scale(1.1); filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.45)); }
+      75% { transform: scale(1.15); filter: drop-shadow(0 0 22px rgba(255, 255, 255, 0.55)); }
+      100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 255, 255, 0)); }
+    }
+    .promo-card-content {
+      padding: 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+      flex: 1;
+    }
+    .promo-meta {
+      display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; justify-content: flex-start;
+      width: 100%;
+    }
+    .promo-badge {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #ff3d80, #ff8c4a);
+      color: white; font-weight: 800; text-transform: uppercase;
+      padding: 0.8rem 1rem; border-radius: 999px;
+      letter-spacing: 0.08em; font-size: 0.95rem;
+      max-width: fit-content;
+    }
+    .promo-btn {
+      margin-top: auto;
+    }
+    .promo-card h3 {
+      font-size: clamp(2rem, 2.4vw, 2.4rem); margin: 0;
+      letter-spacing: 0.02em; line-height: 1.05;
+    }
+    .promo-card p {
+      margin: 0; font-size: 1rem; color: var(--text-muted); line-height: 1.8;
+    }
+    .promo-features {
+      list-style: none; margin: 0; padding: 0; display: grid; gap: 0.9rem;
+    }
+    .promo-features li {
+      display: flex; align-items: flex-start; gap: 0.75rem;
+      color: var(--text-muted); font-size: 0.98rem;
+    }
+    .promo-features li::before {
+      content: '•'; color: #ff4b96; font-size: 1.2rem; line-height: 1.2;
+      margin-top: 0.15rem;
+    }
+    .promo-btn {
+      width: fit-content; padding: 0.95rem 1.6rem; border-radius: 999px;
+      background: linear-gradient(135deg, #ff3d80, #ff8c4a); color: white;
+      font-weight: 700; border: none; text-decoration: none;
+      box-shadow: 0 18px 35px rgba(255, 60, 120, 0.14);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .promo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px rgba(255, 60, 120, 0.2);
+    }
+    .visit-counter {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: #3b0a3f;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.16);
+      border: 1px solid rgba(255,93,150,0.15);
+    }
+    .visit-counter.hidden { display: none; }
+    .visit-counter .status {
+      font-size: 0.78rem;
+      color: #7a4a6b;
+    }
+  </style>
+</head>
+<body>
+<div id="visit-counter" class="visit-counter hidden">
+  <span>Contatore visite</span>
+  <span class="value" id="visit-count">0</span>
+  <span class="status" id="visit-status">offline</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="navbar-logo"><img src="WhatsApp Image 2026-05-19 at 19.59.47.jpeg" alt="Roala Kodheli" style="object-position:center 38%;transform:scale(0.94);transition:transform 0.18s ease, object-position 0.18s ease;"></div>
+    <div>
+      <div class="brand-name">Roala Kodheli</div>
+      <div class="brand-sub" data-i18n="nav.tagline">Distributrice Autorizzata Snep</div>
+    </div>
+  </a>
+  <nav class="navbar-nav">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="al">🇦🇱 AL</button>
+      <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    </div>
+    <a href="bashkohu.html" class="nav-back" data-i18n="nav.join">💼 Bashkohu</a>
+  </nav>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-products">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fade-up delay-1" data-i18n="hero.eyebrow">Programet Bimore · Made in Italy · Certifikuar</p>
+    <h1 class="hero-title fade-up delay-2" data-i18n="hero.title">Në Formë në 360°</h1>
+    <p class="hero-subtitle fade-up delay-3" data-i18n="hero.subtitle">
+      Ofroj programe bimore, të certifikuara dhe Made in Italy që të ndihmojnë në procesin e humbjes së peshës.<br><br>
+      Që nga nëntori 2022, kam ndihmuar mijëra klientë të kthehen në formë, të eliminojnë kilot e teperta, fryerjen etj... pa bërë dieta drastike dhe pa stres.<br><br>
+      Nëse po kërkon një metodë të thjeshtë dhe efikase për t'u rikthyer në formë, jam personi i duhur që mundet të të ndihmojë.<br><br>
+      <strong data-i18n="hero.subtitle.bold">Më shkruaj në privat për të bërë një konsultë së bashku.</strong>
+    </p>
+    <div class="hero-actions fade-up delay-4">
+      <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-i18n="hero.btn1">💬 Shkruaj në Privat</a>
+      <a href="https://catalogo.mysnep.com/" target="_blank" rel="noopener" class="btn btn-outline btn-lg" data-i18n="hero.btn2">🛒 Shiko Katalogun</a>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="section">
+  <div class="container">
+    <div class="benefits-strip reveal">
+      <div class="benefits-strip-item"><span>🌿</span><span data-i18n="benefit.1">100% Natyrale</span></div>
+      <div class="benefits-strip-item"><span>🔬</span><span data-i18n="benefit.2">Testuar Klinikisht</span></div>
+      <div class="benefits-strip-item"><span>🇮🇹</span><span data-i18n="benefit.3">Made in Italy</span></div>
+      <div class="benefits-strip-item"><span>✨</span><span data-i18n="benefit.4">Rezultate Reale</span></div>
+      <div class="benefits-strip-item"><span>🚚</span><span data-i18n="benefit.5">Dërgim i Shpejtë</span></div>
+      <div class="benefits-strip-item"><span>💎</span><span data-i18n="benefit.6">Cilësi Premium</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUKTET -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal" style="text-align:center;padding:4rem 0;">
+      <h2 class="section-title" style="font-size:4rem;letter-spacing:0.12em;" data-i18n="promo.section">PROMOT AKTUALE</h2>
+      <p class="promo-note" data-i18n="promo.note">Promo deri më 28 maj 2026</p>
+    </div>
+    <div class="promo-grid reveal">
+      <div class="promo-card">
+        <div class="promo-image-wrapper">
+          <img src="624c2775-dae6-4553-ba05-5b0553b2a394.jpg" alt="Kit Ready for Summer" />
+        </div>
+        <div class="promo-card-content">
+          <div class="promo-meta">
+            <span class="promo-badge" data-i18n="promo1.wow">SUPER PROMO SUNCARE</span>
+          </div>
+          <h3 data-i18n="promo1.title">Kit Light</h3>
+          <p data-i18n="promo1.desc">Zgjidh 3 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.</p>
+          <ul class="promo-features">
+            <li data-i18n="promo1.feature1">Suplement bimor që ndihmon mbrojtjen e lëkurës ndaj diellit.</li>
+            <li data-i18n="promo1.feature2">Për një nxirje uniforme dhe kundër plakjes së lëkurës.</li>
+            <li data-i18n="promo1.feature3">Dhe DHURATË: PORTOFOLI PLAZHIT SUNCARE</li>
+          </ul>
+          <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn promo-btn" data-i18n="promo1.btn">Më shumë detaje</a>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-image-wrapper">
+          <img src="e911535a-06f6-44c5-b0ba-194771bc4696.jpg" alt="Kit Madh" />
+        </div>
+        <div class="promo-card-content">
+          <div class="promo-meta">
+            <span class="promo-badge" data-i18n="promo2.wow">SUPER PROMO SUNCARE</span>
+          </div>
+          <h3 data-i18n="promo2.title">Kit Madh</h3>
+          <p data-i18n="promo2.desc">Zgjidh 5 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.</p>
+          <ul class="promo-features">
+            <li data-i18n="promo2.feature1">Nje suplement bimor qe ndihmon ne mbrojtjen e lekures ndaj diellit.</li>
+            <li data-i18n="promo2.feature2">Per nje nxirje uniforme dhe kunder plakjes se lekures.</li>
+            <li data-i18n="promo2.feature3">Dhe DHURATE: CANTA PLAZHIT + CANTA TERMIKE</li>
+          </ul>
+          <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn promo-btn" data-i18n="promo2.btn">Më shumë detaje</a>
+        </div>
+      </div>
+      <div class="promo-card">
+        <div class="promo-image-wrapper">
+          <img src="4e39e94f-5060-4f65-b226-dac1c2df028a.jpg" alt="Promo në Kosovë dhe Maqedoni" />
+        </div>
+        <div class="promo-card-content">
+          <div class="promo-meta">
+            <span class="promo-badge" data-i18n="promo3.wow">PROMO NE KOSOVE DHE MAQEDONI</span>
+          </div>
+          <h3 data-i18n="promo3.title">Olivox Special</h3>
+          <p data-i18n="promo3.desc">Duke blere 4 shishe Olivox, dhurate maskat sincera. Deri me 28 maj.</p>
+          <ul class="promo-features">
+            <li data-i18n="promo3.feature1">Olivox - nje suplement bimor i lengshem.</li>
+            <li data-i18n="promo3.feature2">Ndihmon ne eliminimin e fryerjes.</li>
+            <li data-i18n="promo3.feature3">Permireson trerjen dhe pastron organizmin.</li>
+          </ul>
+          <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn promo-btn" data-i18n="promo3.btn">Më shumë detaje</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 data-i18n="cta.title">Gati të Provoni Produktet Snep?</h2>
+    <p data-i18n="cta.desc">Kontaktomë direkt ose shikoni katalogun e plotë online. Jam këtu për t'ju ndihmuar të zgjidhni produktet e duhura për ju.</p>
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn btn-white btn-lg" data-i18n="cta.btn1">💬 Kontaktomë në WhatsApp</a>
+      <a href="https://catalogo.mysnep.com/" target="_blank" rel="noopener" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.5); color:white;" data-i18n="cta.btn2">🛍️ Shiko Katalogun</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Roala Kodheli</div>
+  <div class="footer-tagline" data-i18n="footer.tag">Zgjidhja Juaj për Mirëqenien</div>
+  <div class="footer-links">
+    <a href="http://www.mysnep.com/390176089" target="_blank" rel="noopener">mysnep.com</a>
+    <a href="bashkohu.html" data-i18n="nav.join">💼 Bashkohu</a>
+    <a href="https://wa.me/393792880067" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+  <hr class="footer-divider"/>
+  <div class="footer-copy" data-i18n="footer.copy">© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A.</div>
+</footer>
+
+<script>
+function initReveal() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+});
+</script>
+<script>
+const T = {
+  al: {
+    "nav.tagline": "Distributrice Autorizzata Snep",
+    "nav.join": "💼 Bashkohu",
+    "hero.eyebrow": "Programet Bimore · Made in Italy · Certifikuar",
+    "hero.title": "Në Formë në 360°",
+    "hero.subtitle": "Ofroj programe bimore, të certifikuara dhe Made in Italy që të ndihmojnë në procesin e humbjes së peshës.<br><br>Që nga nëntori 2022, kam ndihmuar mijëra klientë të kthehen në formë, të eliminojnë kilot e teperta, fryerjen etj... pa bërë dieta drastike dhe pa stres.<br><br>Nëse po kërkon një metodë të thjeshtë dhe efikase për t'u rikthyer në formë, jam personi i duhur që mundet të të ndihmojë.<br><br><strong>Më shkruaj në privat për të bërë një konsultë së bashku.</strong>",
+    "hero.subtitle.bold": "Më shkruaj në privat për të bërë një konsultë së bashku.",
+    "hero.btn1": "💬 Shkruaj në Privat",
+    "hero.btn2": "🛒 Shiko Katalogun",
+    "benefit.1": "100% Natyrale",
+    "benefit.2": "Testuar Klinikisht",
+    "benefit.3": "Made in Italy",
+    "benefit.4": "Rezultate Reale",
+    "benefit.5": "Dërgim i Shpejtë",
+    "benefit.6": "Cilësi Premium",
+    "products.tag": "Kategoritë tona",
+    "products.title": "Tre Linja Produktesh",
+    "products.subtitle": "Çdo produkt është rezultat i bashkëpunimit me ekspertë dhe kalimit nga një proces rigoroz validimi.",
+    "product1.line": "Linja 1",
+    "product1.title": "Ushqimi & Suplemente",
+    "product1.desc": "Suplemente ushqimore të formuluara nga nutricionistë dhe mjekë. Mbështesin energjinë, imunitetin dhe mirëqenien e përditshme.",
+    "product1.f1": "Vitamina dhe minerale esenciale",
+    "product1.f2": "Proteina dhe suplemente sportive",
+    "product1.f3": "Produkte detox dhe digestive",
+    "product1.f4": "Formula për humbje peshe",
+    "product2.line": "Linja 2",
+    "product2.title": "Kujdesi Personal",
+    "product2.desc": "Kozmetikë premium, parfume dhe produkte kujdesi personal. Formuluar me përbërës natyralë për lëkurë dhe flokë.",
+    "product2.f1": "Krema hidratuese dhe anti-age",
+    "product2.f2": "Produkte për kujdesin e flokëve",
+    "product2.f3": "Makeup dhe parfume premium",
+    "product2.f4": "Serum dhe trajtim lëkure",
+    "product3.line": "Linja 3",
+    "product3.title": "Kujdesi i Mjedisit",
+    "product3.desc": "Produkte pastrimi dhe kujdesi shtëpiak me formulë bio-degraduese. Efektive, të sigurta për familjen dhe miqësuese me mjedisin.",
+    "product3.f1": "Detergjentë bio-degradues",
+    "product3.f2": "Produkte pastrimi shtëpiake",
+    "product3.f3": "Kujdesi për tekstilet",
+    "product3.f4": "Formula pa kimikate agresive",
+    "product.btn": "Zbulo Produktet ✨",
+    "quote.text": "Produktet tona janë studiuar dhe formuluara për të respektuar standardet më të larta. Ne i prezantojmë ato në treg vetëm pas një procesi të gjatë validimi, që dëshmon efektivitetin dhe cilësinë e tyre.",
+    "quote.cite": "— SNEP S.p.A.",
+    "cta.title": "Gati të Provoni Produktet Snep?",
+    "cta.desc": "Kontaktomë direkt ose shikoni katalogun e plotë online. Jam këtu për t'ju ndihmuar të zgjidhni produktet e duhura për ju.",
+    "cta.btn1": "💬 Kontaktomë në WhatsApp",
+    "cta.btn2": "🛍️ Shiko Katalogun",
+    "promo.section": "PROMOT AKTUALE",
+    "promo.note": "Promo deri më 28 maj 2026",
+    "promo1.wow": "SUPER PROMO SUNCARE",
+    "promo1.chip": "Vlera më e mirë",
+    "promo1.title": "Kit Light",
+    "promo1.desc": "Zgjidh 3 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.",
+    "promo1.feature1": "Suplement bimor që ndihmon mbrojtjen e lëkurës ndaj diellit.",
+    "promo1.feature2": "Për një nxirje uniforme dhe kundër plakjes së lëkurës.",
+    "promo1.feature3": "Dhe DHURATË: PORTOFOLI PLAZHIT SUNCARE",
+    "promo1.btn": "Më shumë detaje",
+    "promo2.wow": "SUPER PROMO SUNCARE",
+    "promo2.title": "Kit Madh",
+    "promo2.desc": "Zgjidh 5 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.",
+    "promo2.feature1": "Nje suplement bimor qe ndihmon ne mbrojtjen e lekures ndaj diellit.",
+    "promo2.feature2": "Per nje nxirje uniforme dhe kunder plakjes se lekures.",
+    "promo2.feature3": "Dhe DHURATE: CANTA PLAZHIT + CANTA TERMIKE",
+    "promo2.btn": "Më shumë detaje",
+    "promo3.wow": "PROMO NE KOSOVE DHE MAQEDONI",
+    "promo3.title": "Olivox Special",
+    "promo3.desc": "Duke blere 4 shishe Olivox, dhurate maskat sincera. Deri me 28 maj.",
+    "promo3.feature1": "Olivox - nje suplement bimor i lengshem.",
+    "promo3.feature2": "Ndihmon ne eliminimin e fryerjes.",
+    "promo3.feature3": "Permireson trerjen dhe pastron organizmin.",
+    "promo3.btn": "Më shumë detaje",
+    "footer.tag": "Zgjidhja Juaj për Mirëqenien",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  },
+  it: {
+    "nav.tagline": "Distributrice Autorizzata Snep",
+    "nav.join": "💼 Unisciti",
+    "hero.eyebrow": "Programmi Botanico · Made in Italy · Certificato",
+    "hero.title": "In Forma a 360°",
+    "hero.subtitle": "Offro programmi botanici, certificati e Made in Italy che aiutano nel processo di perdita di peso.<br><br>Da novembre 2022 ho aiutato migliaia di clienti a tornare in forma, eliminare i chili in eccesso e il gonfiore... senza diete drastiche e senza stress.<br><br>Se stai cercando un metodo semplice ed efficace per tornare in forma, sono la persona giusta che può aiutarti.<br><br><strong>Scrivimi in privato per una consulenza insieme.</strong>",
+    "hero.subtitle.bold": "Scrivimi in privato per una consulenza insieme.",
+    "hero.btn1": "💬 Scrivi in Privato",
+    "hero.btn2": "🛒 Vedi il Catalogo",
+    "benefit.1": "100% Naturale",
+    "benefit.2": "Testato Clinicamente",
+    "benefit.3": "Made in Italy",
+    "benefit.4": "Risultati Reali",
+    "benefit.5": "Spedizione Veloce",
+    "benefit.6": "Qualità Premium",
+    "products.tag": "Le nostre categorie",
+    "products.title": "Tre linee di prodotti",
+    "products.subtitle": "Ogni prodotto è il risultato di una collaborazione con esperti e di un rigoroso processo di validazione.",
+    "product1.line": "Linea 1",
+    "product1.title": "Alimentazione & Integratori",
+    "product1.desc": "Integratori alimentari formulati da nutrizionisti e medici. Supportano energia, sistema immunitario e benessere quotidiano.",
+    "product1.f1": "Vitamine e minerali essenziali",
+    "product1.f2": "Proteine e integratori sportivi",
+    "product1.f3": "Prodotti detox e digestivi",
+    "product1.f4": "Formule per la perdita di peso",
+    "product2.line": "Linea 2",
+    "product2.title": "Cura Personale",
+    "product2.desc": "Cosmetici premium, profumi e prodotti per la cura personale. Formulati con ingredienti naturali per pelle e capelli.",
+    "product2.f1": "Creme idratanti e anti-age",
+    "product2.f2": "Prodotti per la cura dei capelli",
+    "product2.f3": "Makeup e profumi premium",
+    "product2.f4": "Sieri e trattamenti per la pelle",
+    "product3.line": "Linea 3",
+    "product3.title": "Cura dell'Ambiente",
+    "product3.desc": "Prodotti per la pulizia e cura della casa con formula biodegradabile. Efficaci, sicuri per la famiglia e amici, eco-friendly.",
+    "product3.f1": "Detergenti biodegradabili",
+    "product3.f2": "Prodotti per la pulizia della casa",
+    "product3.f3": "Cura dei tessuti",
+    "product3.f4": "Formule senza sostanze chimiche aggressive",
+    "product.btn": "Scopri i Prodotti ✨",
+    "quote.text": "I nostri prodotti sono studiati e formulati per rispettare gli standard più elevati. Li presentiamo sul mercato solo dopo un lungo processo di validazione che dimostra efficacia e qualità.",
+    "quote.cite": "— SNEP S.p.A.",
+    "cta.title": "Pronto a provare i prodotti Snep?",
+    "cta.desc": "Contattami direttamente o guarda il catalogo completo online. Sono qui per aiutarti a scegliere i prodotti giusti per te.",
+    "cta.btn1": "💬 Contattami su WhatsApp",
+    "cta.btn2": "🛍️ Vedi il Catalogo",
+    "promo.section": "PROMO ATTUALE",
+    "promo.note": "Offerta speciale fino al 28 maggio 2026",
+    "promo1.wow": "SUPER PROMO SUNCARE",
+    "promo1.title": "Kit Light",
+    "promo1.desc": "Scegli 3 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",
+    "promo1.feature1": "Integratore botanico per proteggere la pelle dal sole.",
+    "promo1.feature2": "Per un'abbronzatura uniforme e contro l'invecchiamento della pelle.",
+    "promo1.feature3": "E IN REGALO: LA BORSA DA MARE SUNCARE",
+    "promo1.btn": "Scopri di più",
+    "promo2.wow": "SUPER PROMO SUNCARE",
+    "promo2.title": "Kit Grande",
+    "promo2.desc": "Scegli 5 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",
+    "promo2.feature1": "Integratore botanico che aiuta a proteggere la pelle dal sole.",
+    "promo2.feature2": "Per un'abbronzatura uniforme e contro l'invecchiamento della pelle.",
+    "promo2.feature3": "E IN REGALO: BORSA DA SPIAGGIA + BORSA TERMICA",
+    "promo2.btn": "Scopri di più",
+    "promo3.wow": "PROMO IN KOSOVO E MACEDONIA",
+    "promo3.title": "Olivox Special",
+    "promo3.desc": "Acquista 4 bottiglie di Olivox e ricevi in regalo le maschere Sincera. Fino al 28 maggio.",
+    "promo3.feature1": "Olivox - un integratore botanico liquido.",
+    "promo3.feature2": "Aiuta a eliminare il gonfiore.",
+    "promo3.feature3": "Migliora la digestione e purifica l'organismo.",
+    "promo3.btn": "Scopri di più",
+    "footer.tag": "La tua soluzione per il benessere",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  },
+  en: {
+    "nav.tagline": "Authorized Snep Distributor",
+    "nav.join": "💼 Join",
+    "hero.eyebrow": "Plant-Based Programs · Made in Italy · Certified",
+    "hero.title": "In Shape at 360°",
+    "hero.subtitle": "I offer plant-based, certified Made in Italy programs that support the weight-loss process.<br><br>Since November 2022 I have helped thousands of clients return to shape, eliminate excess weight and bloating... without drastic diets and without stress.<br><br>If you're looking for a simple and effective method to get back in shape, I'm the right person who can help you.<br><br><strong>Message me privately for a consultation together.</strong>",
+    "hero.subtitle.bold": "Message me privately for a consultation together.",
+    "hero.btn1": "💬 Message Me",
+    "hero.btn2": "🛒 View Catalog",
+    "benefit.1": "100% Natural",
+    "benefit.2": "Clinically Tested",
+    "benefit.3": "Made in Italy",
+    "benefit.4": "Real Results",
+    "benefit.5": "Fast Shipping",
+    "benefit.6": "Premium Quality",
+    "products.tag": "Our categories",
+    "products.title": "Three Product Lines",
+    "products.subtitle": "Each product is the result of collaboration with experts and a rigorous validation process.",
+    "product1.line": "Line 1",
+    "product1.title": "Nutrition & Supplements",
+    "product1.desc": "Food supplements formulated by nutritionists and doctors. They support energy, immunity and daily wellness.",
+    "product1.f1": "Essential vitamins and minerals",
+    "product1.f2": "Proteins and sports supplements",
+    "product1.f3": "Detox and digestive products",
+    "product1.f4": "Weight loss formulas",
+    "product2.line": "Line 2",
+    "product2.title": "Personal Care",
+    "product2.desc": "Premium cosmetics, perfumes and personal care products. Formulated with natural ingredients for skin and hair.",
+    "product2.f1": "Moisturizing and anti-aging creams",
+    "product2.f2": "Hair care products",
+    "product2.f3": "Premium makeup and perfumes",
+    "product2.f4": "Serums and skin treatments",
+    "product3.line": "Line 3",
+    "product3.title": "Environment Care",
+    "product3.desc": "Household cleaning and care products with biodegradable formula. Effective, safe for family and eco-friendly.",
+    "product3.f1": "Biodegradable detergents",
+    "product3.f2": "House cleaning products",
+    "product3.f3": "Textile care",
+    "product3.f4": "Formulas without harsh chemicals",
+    "product.btn": "Discover Products ✨",
+    "quote.text": "Our products are studied and formulated to meet the highest standards. We present them on the market only after a long validation process that proves their effectiveness and quality.",
+    "quote.cite": "— SNEP S.p.A.",
+    "cta.title": "Ready to try Snep products?",
+    "cta.desc": "Contact me directly or see the full catalog online. I am here to help you choose the right products for you.",
+    "cta.btn1": "💬 Contact on WhatsApp",
+    "cta.btn2": "🛍️ View Catalog",
+    "promo.section": "CURRENT PROMO",
+    "promo.note": "Special offer until 28 May 2026",
+    "promo1.wow": "SUPER SUNCARE PROMO",
+    "promo1.title": "Light Kit",
+    "promo1.desc": "Choose 3 products from our SunCare line + Bronxe Prepare. Maximum protection and Made in Italy quality.",
+    "promo1.feature1": "Herbal supplement that helps protect skin from the sun.",
+    "promo1.feature2": "For an even tan and to fight skin aging.",
+    "promo1.feature3": "AND FREE: SUNCARE BEACH BAG",
+    "promo1.btn": "Learn more",
+    "promo2.wow": "SUPER SUNCARE PROMO",
+    "promo2.title": "Big Kit",
+    "promo2.desc": "Choose 5 products from our SunCare line + Bronxe Prepare. Maximum protection and Made in Italy quality.",
+    "promo2.feature1": "Herbal supplement that helps protect skin from the sun.",
+    "promo2.feature2": "For an even tan and to fight skin aging.",
+    "promo2.feature3": "AND FREE: BEACH BAG + THERMAL BAG",
+    "promo2.btn": "Learn more",
+    "promo3.wow": "PROMO IN KOSOVO AND MACEDONIA",
+    "promo3.title": "Olivox Special",
+    "promo3.desc": "Buy 4 bottles of Olivox and get Sincera masks free. Valid until May 28.",
+    "promo3.feature1": "Olivox - a liquid herbal supplement.",
+    "promo3.feature2": "Helps reduce bloating.",
+    "promo3.feature3": "Improves digestion and cleanses the body.",
+    "promo3.btn": "Learn more",
+    "footer.tag": "Your solution for wellness",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  }
+};
+
+let currentLang = 'al';
+
+function getLangFromURL() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    return ['al','it','en'].includes(lang) ? lang : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function updateInternalLinks(lang) {
+  if (!lang) return;
+  document.querySelectorAll('a[href]').forEach(el => {
+    const href = el.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.match(/^[a-z]+:/i)) return;
+    if (!href.endsWith('.html') && href.indexOf('.html?') === -1) return;
+    try {
+      const url = new URL(href, window.location.href);
+      url.searchParams.set('lang', lang);
+      el.setAttribute('href', url.pathname + url.search);
+    } catch (e) {}
+  });
+}
+
+function setLang(lang) {
+  if (!T[lang]) lang = 'al';
+  currentLang = lang;
+  document.querySelectorAll('.lang-switcher .lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+  document.documentElement.lang = lang === 'al' ? 'sq' : lang;
+  try { localStorage.setItem('snep-lang', lang); } catch(e) {}
+  updateInternalLinks(lang);
+}
+
+function detectLang() {
+  const urlLang = getLangFromURL();
+  if (urlLang) return urlLang;
+  var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (lang.startsWith('sq') || lang.startsWith('al')) return 'al';
+  if (lang.startsWith('it')) return 'it';
+  return 'en';
+}
+
+function authorizeVisitCounter() {
+  const secret = 'roala-view-token';
+  const authKey = 'snep-visit-counter-auth';
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('showcounter');
+  if (token === secret) {
+    try { localStorage.setItem(authKey, secret); } catch (e) {}
+    return true;
+  }
+  return localStorage.getItem(authKey) === secret;
+}
+
+function setupVisitCounter() {
+  const el = document.getElementById('visit-counter');
+  const countEl = document.getElementById('visit-count');
+  const statusEl = document.getElementById('visit-status');
+  if (!el || !countEl || !statusEl) return;
+  if (!authorizeVisitCounter()) return;
+
+  const counterKey = 'snep-visit-counter-count';
+  let count = Number(localStorage.getItem(counterKey) || 0);
+  const online = navigator.onLine;
+  if (online) {
+    count += 1;
+    try { localStorage.setItem(counterKey, count); } catch (e) {}
+  }
+  countEl.textContent = count;
+  statusEl.textContent = online ? 'online' : 'offline';
+  el.classList.remove('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = null;
+  try { savedLang = localStorage.getItem('snep-lang'); } catch(e) {}
+  const urlLang = getLangFromURL();
+  setLang(urlLang || savedLang || detectLang());
+  setupVisitCounter();
+});
+</script>
+<script src="editor.js"></script>
+</body>
+</html>

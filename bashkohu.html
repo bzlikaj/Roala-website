@@ -1,0 +1,669 @@
+﻿<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roala Kodheli — Behu Pjesë e Ekipit Tim</title>
+  <meta name="description" content="Roala Kodheli · Distributore e Autorizuar Snep S.p.A. — Ndërto biznesin tënd me zero investime. Bashkohu ekipit tim sot!"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script>if(localStorage.getItem('snep_v')!=='2'){Object.keys(localStorage).filter(k=>k.startsWith('snep-snap')).forEach(k=>localStorage.removeItem(k));localStorage.setItem('snep_v','2');}</script>
+  <style>
+    /* ---- Income cards ---- */
+    .income-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .income-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--pink);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .income-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .income-level {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--pink); margin-bottom: 0.5rem;
+    }
+    .income-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem; font-weight: 800;
+      color: var(--plum); line-height: 1.1;
+    }
+    .income-period {
+      font-size: 0.8rem; color: var(--text-muted); margin-top: 0.3rem;
+    }
+
+    /* ---- Steps ---- */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    .step-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+    .step-number {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--pink), var(--plum));
+      color: white; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 800;
+      margin: 0 auto 1rem;
+    }
+    .step-title { font-weight: 800; font-size: 1rem; color: var(--plum); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ---- Why join cards ---- */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .why-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease;
+    }
+    .why-card:hover { transform: translateY(-4px); }
+    .why-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .why-title { font-weight: 800; font-size: 1rem; color: var(--plum); margin-bottom: 0.5rem; }
+    .why-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ---- Freedom grid ---- */
+    .freedom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    .freedom-item {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 12px;
+      padding: 1.25rem 1rem;
+      text-align: center;
+      color: white;
+      backdrop-filter: blur(4px);
+    }
+    .freedom-item .fi-icon { font-size: 1.8rem; margin-bottom: 0.4rem; }
+    .freedom-item .fi-label { font-size: 0.85rem; font-weight: 700; }
+
+    /* ---- Join CTA buttons ---- */
+    .join-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;
+    }
+
+    /* ---- Contact strip ---- */
+    .contact-strip {
+      background: var(--pink-light);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .contact-strip p { color: var(--plum); font-weight: 700; margin-bottom: 0.5rem; }
+    .contact-strip a {
+      color: var(--plum-dark); font-size: 1.2rem; font-weight: 800;
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .contact-strip a:hover { color: var(--pink); }
+
+    /* Freedom section gradient */
+    .section-freedom {
+      background: linear-gradient(135deg, var(--plum-dark) 0%, var(--plum) 50%, var(--pink-dark) 100%);
+      padding: 4rem 0;
+    }
+    .section-freedom .section-header .section-tag,
+    .section-freedom .section-header .section-title,
+    .section-freedom .section-header .section-subtitle {
+      color: white;
+    }
+    .section-freedom .section-header .section-tag {
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.85);
+    }
+    .visit-counter {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: #3b0a3f;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.16);
+      border: 1px solid rgba(255,93,150,0.15);
+    }
+    .visit-counter.hidden { display: none; }
+    .visit-counter .status {
+      font-size: 0.78rem;
+      color: #7a4a6b;
+    }
+  </style>
+</head>
+<body>
+<div id="visit-counter" class="visit-counter hidden">
+  <span>Contatore visite</span>
+  <span class="value" id="visit-count">0</span>
+  <span class="status" id="visit-status">offline</span>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="navbar-logo"><img src="WhatsApp Image 2026-05-19 at 19.59.47.jpeg" alt="Roala Kodheli" style="object-position:center 38%;transform:scale(0.94);transition:transform 0.18s ease, object-position 0.18s ease;"></div>
+    <div>
+      <div class="brand-name">Roala Kodheli</div>
+      <div class="brand-sub" data-i18n="nav.tagline">Distributrice Autorizzata Snep</div>
+    </div>
+  </a>
+  <nav class="navbar-nav">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="al">🇦🇱 AL</button>
+      <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    </div>
+    <a href="produktet.html" class="nav-back" data-i18n="nav.products">🛒 Produktet</a>
+  </nav>
+</nav>
+
+<!-- HERO -->
+<section class="hero hero-join">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow fade-up delay-1" data-i18n="hero.eyebrow">Distributore e Autorizuar Snep nga Nëntori 2022 · Diamond Black</p>
+    <h1 class="hero-title fade-up delay-2" data-i18n="hero.title">Behu Pjesë<br>e Ekipit Tim</h1>
+    <p class="hero-subtitle fade-up delay-3" data-i18n="hero.subtitle">
+      Kam nisur me zero eksperiencë në këtë fushë dhe sot mbaj kualifikimin e lartë Diamond Black.<br><br>
+      Falë network marketing kam hequr dorë nga puna online dhe sot kam krijuar lirinë e kohës dhe lirinë financiare.<br><br>
+      Ofroj këtë mundësi punë çdo vajze dhe gruaje që dëshiron të krijojë biznesin e saj me zero investime.
+      Nuk kërkohet të kesh eksperiencë, as shkollë të lartë të caktuar, as të njohesh një gjuhë të huaj.
+      Në ekipitin tim do gjesh mbështetje, grupe punë dhe trajnime falas dhe gjithashtu do punojmë hap pas hapi së bashku.<br><br>
+      <strong data-i18n="hero.focus">Çfarë po kërkoj?</strong><br>
+      Vajza/gra/nëna ambicioze dhe që nuk trembet nga e reja.
+      Qoftë nëse po kërkon një fitim extra apo diçka të madhe për të ndryshuar jetën tënde, je në vendin e duhur.<br><br>
+      <strong data-i18n="hero.cta">Më shkruaj në privat</strong>
+    </p>
+    <div class="hero-actions fade-up delay-4">
+      <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn btn-primary btn-lg" data-i18n="hero.btn1">💬 Shkruaj në Privat</a>
+      <a href="http://www.mysnep.com/390176089" target="_blank" rel="noopener" class="btn btn-outline btn-lg" data-i18n="hero.btn2">🚀 Regjistrohu Falas</a>
+  </div>
+</section>
+
+<!-- INCOME POTENTIAL -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="income.tag">Potenciali financiar</span>
+      <h2 class="section-title" data-i18n="income.title">Sa Mund të Fitoni?</h2>
+      <p class="section-subtitle" data-i18n="income.subtitle">Të ardhurat variojnë sipas angazhimit dhe kohës që i kushtoni biznesit tuaj.</p>
+    </div>
+    <div class="income-grid">
+      <div class="income-card reveal">
+        <div class="income-level" data-i18n="income.level1">Distributore</div>
+        <div class="income-amount">25%</div>
+        <div class="income-period" data-i18n="income.period">fitim dhe zbritje</div>
+      </div>
+      <div class="income-card reveal">
+        <div class="income-level" data-i18n="income.level2">Supervisore</div>
+        <div class="income-amount">50%</div>
+        <div class="income-period" data-i18n="income.period">fitim dhe zbritje</div>
+      </div>
+      <div class="income-card reveal">
+        <div class="income-level" data-i18n="income.level3">Fitime pasive</div>
+        <div class="income-amount">25% + Royalties</div>
+        <div class="income-period">5, 8, 6%</div>
+      </div>
+      <div class="income-card reveal">
+        <div class="income-level" data-i18n="income.level4">Bonus</div>
+        <div class="income-amount">Ekstra</div>
+        <div class="income-period"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY JOIN -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="why.tag">Pse Snep?</span>
+      <h2 class="section-title" data-i18n="why.title">Çfarë Të Ofrojmë</h2>
+      <p class="section-subtitle" data-i18n="why.subtitle">Kompania Snep S.p.A. ofron një sistem të plotë mbështetjeje për çdo anëtar.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">�</div>
+        <div class="why-title" data-i18n="why.card1.title">Zero Investime</div>
+        <div class="why-desc" data-i18n="why.card1.desc">Fillo biznesin tënd pa investime fillestare. Regjistrimi është falas dhe nuk ka rrezik financiar.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🎓</div>
+        <div class="why-title" data-i18n="why.card2.title">Pa Eksperiencë</div>
+        <div class="why-desc" data-i18n="why.card2.desc">Nuk kërkohet eksperiencë, shkollë e lartë e caktuar apo njohje e gjuhëve të huaja.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🤝</div>
+        <div class="why-title" data-i18n="why.card3.title">Grup Pune & Trajnime</div>
+        <div class="why-desc" data-i18n="why.card3.desc">Do gjesh mbështetje, grup pune dhe trajnime falas. Do punojmë hap pas hapi se bashku.</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⏰</div>
+        <div class="why-title" data-i18n="why.card4.title">Liri e Kohës</div>
+        <div class="why-desc" data-i18n="why.card4.desc">Fale network marketing krijo liri kohore dhe financiare. Puno sipas ritmit tënd.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="steps.tag">Si Filloni</span>
+      <h2 class="section-title" data-i18n="steps.title">3 Hapa të Thjeshtë</h2>
+      <p class="section-subtitle" data-i18n="steps.subtitle">Rruga juaj drejt lirisë financiare fillon këtu.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card reveal">
+        <div class="step-number">1</div>
+        <div class="step-title" data-i18n="steps.card1.title">Na Kontakto</div>
+        <div class="step-desc" data-i18n="steps.card1.desc">Shkruaj në privat në WhatsApp ose Instagram. Do të diskutojmë së bashku nëse kjo mundësi është për ty.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">2</div>
+        <div class="step-title" data-i18n="steps.card2.title">Regjistrohu Falas</div>
+        <div class="step-desc" data-i18n="steps.card2.desc">Krijoni llogarinë tuaj falas në mysnep.com duke përdorur linkun tim. Merr menjëherë hyrjen në platformë.</div>
+      </div>
+      <div class="step-card reveal">
+        <div class="step-number">3</div>
+        <div class="step-title" data-i18n="steps.card3.title">Fillo & Fito</div>
+        <div class="step-desc" data-i18n="steps.card3.desc">Do punojmë hap pas hapi se bashku. Sa më shumë punoni, aq më shumë fitoni — pa tavanin!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FREEDOM -->
+<section class="section-freedom">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:rgba(255,255,255,0.85);" data-i18n="freedom.tag">Stili i jetës</span>
+      <h2 class="section-title" style="color:white;" data-i18n="freedom.title">Jeta Jote, Rregullat Tua</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.75);" data-i18n="freedom.subtitle">Snep ju jep lirinë të ndërtoni jetën ashtu siç doni.</p>
+    </div>
+    <div class="freedom-grid">
+      <div class="freedom-item reveal">
+        <div class="fi-icon">🏠</div>
+        <div class="fi-label" data-i18n="freedom.item1">Punë nga Shtëpia</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">⏰</div>
+        <div class="fi-label" data-i18n="freedom.item2">Oraret Tua</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">✈️</div>
+        <div class="fi-label" data-i18n="freedom.item3">Punë nga Kudo</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">📱</div>
+        <div class="fi-label" data-i18n="freedom.item4">Platforma Online</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">👨‍👩‍👧</div>
+        <div class="fi-label" data-i18n="freedom.item5">Kohë me Familjen</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">📈</div>
+        <div class="fi-label" data-i18n="freedom.item6">Rritje Konstante</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">🎯</div>
+        <div class="fi-label" data-i18n="freedom.item7">Qëllimet Tuaja</div>
+      </div>
+      <div class="freedom-item reveal">
+        <div class="fi-icon">💪</div>
+        <div class="fi-label" data-i18n="freedom.item8">Pavarësi Totale</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials section removed -->
+
+<!-- JOIN CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <h2 data-i18n="cta.title">Gati për të Filluar?</h2>
+    <p data-i18n="cta.desc">Regjistrohu falas sot dhe hap dyert e mundësive të pakufizuara. Jam këtu për të të udhëhequr çdo hap!</p>
+    <div class="join-buttons">
+      <a href="http://www.mysnep.com/390176089" target="_blank" rel="noopener" class="btn btn-white btn-lg" data-i18n="cta.btn1">🚀 Regjistrohu Tani — Falas!</a>
+      <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.5); color:white;" data-i18n="cta.btn2">💬 Kontaktomë Direkt</a>
+    </div>
+    <div class="contact-strip" style="background:rgba(255,255,255,0.12); margin-top:2rem; border-radius:12px; padding:1rem 1.5rem;">
+      <p style="color:rgba(255,255,255,0.7); font-size:0.85rem; margin-bottom:0.4rem;" data-i18n="contact.label">WhatsApp:</p>
+      <a href="https://wa.me/393792880067" target="_blank" rel="noopener" style="color:white; font-size:1.2rem; font-weight:800; text-decoration:none;" data-i18n="contact.value">📱 +39 379 288 0067</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-logo">Roala Kodheli</div>
+  <div class="footer-tagline" data-i18n="footer.tag">Ndërto Lirinë Tënde Financiare</div>
+  <div class="footer-links">
+    <a href="http://www.mysnep.com/390176089" target="_blank" rel="noopener">mysnep.com</a>
+    <a href="produktet.html" data-i18n="nav.products">🛒 Produktet</a>
+    <a href="https://wa.me/393792880067" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+  <hr class="footer-divider"/>
+  <div class="footer-copy" data-i18n="footer.copy">© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A.</div>
+</footer>
+
+<script>
+function initReveal() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  initReveal();
+});
+</script>
+<script>
+const T = {
+  al: {
+    "nav.tagline": "Distributrice Autorizzata Snep",
+    "nav.products": "🛒 Produktet",
+    "hero.eyebrow": "Distributore e Autorizuar Snep nga Nëntori 2022 · Diamond Black",
+    "hero.title": "Behu Pjesë<br>e Ekipit Tim",
+    "hero.subtitle": "Kam nisur me zero eksperiencë në këtë fushë dhe sot mbaj kualifikimin e lartë Diamond Black.<br><br>Falë network marketing kam hequr dorë nga puna online dhe sot kam krijuar lirinë e kohës dhe lirinë financiare.<br><br>Ofruaj këtë mundësi punë çdo vajze dhe gruaje që dëshiron të krijojë biznesin e saj me zero investime. Nuk kërkohet të kesh eksperiencë, as shkollë të lartë të caktuar, as të njohesh një gjuhë të huaj. Në ekipitin tim do gjesh mbështetje, grupe punë dhe trajnime falas dhe gjithashtu do punojmë hap pas hapi së bashku.<br><br>",
+    "hero.focus": "Çfarë po kërkoj?",
+    "hero.cta": "Më shkruaj në privat",
+    "hero.btn1": "💬 Shkruaj në Privat",
+    "hero.btn2": "🚀 Regjistrohu Falas",
+    "income.tag": "Potenciali financiar",
+    "income.title": "Sa Mund të Fitoni?",
+    "income.subtitle": "Të ardhurat variojnë sipas angazhimit dhe kohës që i kushtoni biznesit tuaj.",
+    "income.level1": "Distributore",
+    "income.level2": "Supervisore",
+    "income.level3": "Fitime pasive",
+    "income.level4": "Bonus",
+    "income.period": "fitim dhe zbritje",
+    "why.tag": "Pse Snep?",
+    "why.title": "Çfarë Të Ofrojmë",
+    "why.subtitle": "Kompania Snep S.p.A. ofron një sistem të plotë mbështetjeje për çdo anëtar.",
+    "why.card1.title": "Zero Investime",
+    "why.card1.desc": "Fillo biznesin tënd pa investime fillestare. Regjistrimi është falas dhe nuk ka rrezik financiar.",
+    "why.card2.title": "Pa Eksperiencë",
+    "why.card2.desc": "Nuk kërkohet eksperiencë, shkollë e lartë e caktuar apo njohje e gjuhëve të huaja.",
+    "why.card3.title": "Grup Pune & Trajnime",
+    "why.card3.desc": "Do gjesh mbështetje, grup pune dhe trajnime falas. Do punojmë hap pas hapi se bashku.",
+    "why.card4.title": "Liri e Kohës",
+    "why.card4.desc": "Fale network marketing krijo liri kohore dhe financiare. Puno sipas ritmit tënd.",
+    "steps.tag": "Si Filloni",
+    "steps.title": "3 Hapa të Thjeshtë",
+    "steps.subtitle": "Rruga juaj drejt lirisë financiare fillon këtu.",
+    "steps.card1.title": "Na Kontakto",
+    "steps.card1.desc": "Shkruaj në privat në WhatsApp ose Instagram. Do të diskutojmë së bashku nëse kjo mundësi është për ty.",
+    "steps.card2.title": "Regjistrohu Falas",
+    "steps.card2.desc": "Krijoni llogarinë tuaj falas në mysnep.com duke përdorur linkun tim. Merr menjëherë hyrjen në platformë.",
+    "steps.card3.title": "Fillo & Fito",
+    "steps.card3.desc": "Do punojmë hap pas hapi se bashku. Sa më shumë punoni, aq më shumë fitoni — pa tavanin!",
+    "freedom.tag": "Stili i jetës",
+    "freedom.title": "Jeta Jote, Rregullat Tua",
+    "freedom.subtitle": "Snep ju jep lirinë të ndërtoni jetën ashtu siç doni.",
+    "freedom.item1": "Punë nga Shtëpia",
+    "freedom.item2": "Oraret Tua",
+    "freedom.item3": "Punë nga Kudo",
+    "freedom.item4": "Platforma Online",
+    "freedom.item5": "Kohë me Familjen",
+    "freedom.item6": "Rritje Konstante",
+    "freedom.item7": "Qëllimet Tuaja",
+    "freedom.item8": "Pavarësi Totale",
+    "cta.title": "Gati për të Filluar?",
+    "cta.desc": "Regjistrohu falas sot dhe hap dyert e mundësive të pakufizuara. Jam këtu për të të udhëhequr çdo hap!",
+    "cta.btn1": "🚀 Regjistrohu Tani — Falas!",
+    "cta.btn2": "💬 Kontaktomë Direkt",
+    "contact.label": "WhatsApp:",
+    "contact.value": "📱 +39 379 288 0067",
+    "footer.tag": "Ndërto Lirinë Tënde Financiare",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  },
+  it: {
+    "nav.tagline": "Distributrice Autorizzata Snep",
+    "nav.products": "🛒 Prodotti",
+    "hero.eyebrow": "Distributrice Autorizzata Snep da Novembre 2022 · Diamond Black",
+    "hero.title": "Unisciti<br>al Mio Team",
+    "hero.subtitle": "Ho iniziato senza alcuna esperienza in questo settore e oggi ho raggiunto la qualifica Diamond Black. Grazie al network marketing ho lasciato il lavoro online e ho creato la libertà del tempo e la libertà finanziaria.",
+    "hero.focus": "Cosa cerco?",
+    "hero.cta": "Scrivimi in privato",
+    "hero.btn1": "💬 Scrivi in Privato",
+    "hero.btn2": "🚀 Registrati Gratis",
+    "income.tag": "Potenziale finanziario",
+    "income.title": "Quanto Puoi Guadagnare?",
+    "income.subtitle": "I guadagni variano in base all'impegno e al tempo dedicato al tuo business.",
+    "income.level1": "Distributrice",
+    "income.level2": "Supervisore",
+    "income.level3": "Guadagni passivi",
+    "income.level4": "Bonus",
+    "income.period": "guadagno e sconti",
+    "why.tag": "Perché Snep?",
+    "why.title": "Cosa Offriamo",
+    "why.subtitle": "La società Snep S.p.A. offre un sistema completo di supporto per ogni membro.",
+    "why.card1.title": "Zero Investimenti",
+    "why.card1.desc": "Avvia il tuo business senza investimenti iniziali. La registrazione è gratuita e non ci sono rischi finanziari.",
+    "why.card2.title": "Nessuna Esperienza",
+    "why.card2.desc": "Non è richiesta esperienza, titoli di studio particolari o conoscenza di lingue straniere.",
+    "why.card3.title": "Gruppo di Lavoro e Formazione",
+    "why.card3.desc": "Troverai supporto, gruppi di lavoro e formazione gratuita. Lavoreremo passo dopo passo insieme.",
+    "why.card4.title": "Libertà di Tempo",
+    "why.card4.desc": "Grazie al network marketing crei libertà di tempo e finanziaria. Lavora al tuo ritmo.",
+    "steps.tag": "Come Iniziare",
+    "steps.title": "3 Passi Semplici",
+    "steps.subtitle": "Il tuo percorso verso la libertà finanziaria inizia qui.",
+    "steps.card1.title": "Contattami",
+    "steps.card1.desc": "Scrivi in privato su WhatsApp o Instagram. Discuteremo insieme se questa opportunità è per te.",
+    "steps.card2.title": "Registrati Gratis",
+    "steps.card2.desc": "Crea il tuo account gratuito su mysnep.com usando il mio link. Ricevi subito accesso alla piattaforma.",
+    "steps.card3.title": "Inizia & Guadagna",
+    "steps.card3.desc": "Lavoreremo passo dopo passo insieme. Più lavori, più guadagni — senza limiti!",
+    "freedom.tag": "Stile di vita",
+    "freedom.title": "La Tua Vita, le Tue Regole",
+    "freedom.subtitle": "Snep ti dà la libertà di costruire la vita come desideri.",
+    "freedom.item1": "Lavoro da Casa",
+    "freedom.item2": "Orari Tuoi",
+    "freedom.item3": "Lavora da Ovunque",
+    "freedom.item4": "Piattaforma Online",
+    "freedom.item5": "Tempo con la Famiglia",
+    "freedom.item6": "Crescita Costante",
+    "freedom.item7": "I Tuoi Obiettivi",
+    "freedom.item8": "Indipendenza Totale",
+    "cta.title": "Pronta a Iniziare?",
+    "cta.desc": "Registrati gratis oggi e apri le porte a infinite opportunità. Sono qui per guidarti in ogni passo!",
+    "cta.btn1": "🚀 Registrati Ora — Gratis!",
+    "cta.btn2": "💬 Contattami Direttamente",
+    "contact.label": "WhatsApp:",
+    "contact.value": "📱 +39 379 288 0067",
+    "footer.tag": "Costruisci la tua libertà finanziaria",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  },
+  en: {
+    "nav.tagline": "Authorized Snep Distributor",
+    "nav.products": "🛒 Products",
+    "hero.eyebrow": "Authorized Snep Distributor since November 2022 · Diamond Black",
+    "hero.title": "Join<br>My Team",
+    "hero.subtitle": "I started with zero experience in this field and today I hold the high Diamond Black qualification. Thanks to network marketing I left online work and created time freedom and financial freedom.",
+    "hero.focus": "What am I looking for?",
+    "hero.cta": "Message me privately",
+    "hero.btn1": "💬 Message Me",
+    "hero.btn2": "🚀 Register Free",
+    "income.tag": "Income potential",
+    "income.title": "How Much Can You Earn?",
+    "income.subtitle": "Income varies based on commitment and the time you dedicate to your business.",
+    "income.level1": "Distributor",
+    "income.level2": "Supervisor",
+    "income.level3": "Passive earnings",
+    "income.level4": "Bonus",
+    "income.period": "profit and discounts",
+    "why.tag": "Why Snep?",
+    "why.title": "What We Offer",
+    "why.subtitle": "Snep S.p.A. offers a complete support system for every member.",
+    "why.card1.title": "Zero Investment",
+    "why.card1.desc": "Start your business with no initial investment. Registration is free and there is no financial risk.",
+    "why.card2.title": "No Experience Required",
+    "why.card2.desc": "No experience, special degree or foreign language knowledge is required.",
+    "why.card3.title": "Work Group & Training",
+    "why.card3.desc": "You will find support, work groups and free training. We will work step by step together.",
+    "why.card4.title": "Time Freedom",
+    "why.card4.desc": "Thanks to network marketing, you create time and financial freedom. Work at your own pace.",
+    "steps.tag": "How to Start",
+    "steps.title": "3 Simple Steps",
+    "steps.subtitle": "Your path to financial freedom starts here.",
+    "steps.card1.title": "Contact Me",
+    "steps.card1.desc": "Message me privately on WhatsApp or Instagram. We will discuss together if this opportunity is right for you.",
+    "steps.card2.title": "Register Free",
+    "steps.card2.desc": "Create your free account on mysnep.com using my link. Get instant access to the platform.",
+    "steps.card3.title": "Start & Earn",
+    "steps.card3.desc": "We will work step by step together. The more you work, the more you earn — no ceiling!",
+    "freedom.tag": "Lifestyle",
+    "freedom.title": "Your Life, Your Rules",
+    "freedom.subtitle": "Snep gives you the freedom to build life as you want.",
+    "freedom.item1": "Work from Home",
+    "freedom.item2": "Your Hours",
+    "freedom.item3": "Work from Anywhere",
+    "freedom.item4": "Online Platform",
+    "freedom.item5": "Time with Family",
+    "freedom.item6": "Constant Growth",
+    "freedom.item7": "Your Goals",
+    "freedom.item8": "Total Independence",
+    "cta.title": "Ready to Start?",
+    "cta.desc": "Register free today and open the doors to unlimited opportunities. I am here to guide you every step!",
+    "cta.btn1": "🚀 Register Now — Free!",
+    "cta.btn2": "💬 Contact Me Directly",
+    "contact.label": "WhatsApp:",
+    "contact.value": "📱 +39 379 288 0067",
+    "footer.tag": "Build your financial freedom",
+    "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
+  }
+};
+
+let currentLang = 'al';
+
+function getLangFromURL() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    return ['al','it','en'].includes(lang) ? lang : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function updateInternalLinks(lang) {
+  if (!lang) return;
+  document.querySelectorAll('a[href]').forEach(el => {
+    const href = el.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.match(/^[a-z]+:/i)) return;
+    if (!href.endsWith('.html') && href.indexOf('.html?') === -1) return;
+    try {
+      const url = new URL(href, window.location.href);
+      url.searchParams.set('lang', lang);
+      el.setAttribute('href', url.pathname + url.search);
+    } catch (e) {}
+  });
+}
+
+function setLang(lang) {
+  if (!T[lang]) lang = 'al';
+  currentLang = lang;
+  document.querySelectorAll('.lang-switcher .lang-btn').forEach(function(b) {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(function(el) {
+    var key = el.getAttribute('data-i18n');
+    if (T[lang][key] !== undefined) el.innerHTML = T[lang][key];
+  });
+  document.documentElement.lang = lang === 'al' ? 'sq' : lang;
+  try { localStorage.setItem('snep-lang', lang); } catch (e) {}
+  updateInternalLinks(lang);
+}
+
+function detectLang() {
+  const urlLang = getLangFromURL();
+  if (urlLang) return urlLang;
+  var lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (lang.startsWith('sq') || lang.startsWith('al')) return 'al';
+  if (lang.startsWith('it')) return 'it';
+  return 'en';
+}
+
+function authorizeVisitCounter() {
+  const secret = 'roala-view-token';
+  const authKey = 'snep-visit-counter-auth';
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('showcounter');
+  if (token === secret) {
+    try { localStorage.setItem(authKey, secret); } catch (e) {}
+    return true;
+  }
+  return localStorage.getItem(authKey) === secret;
+}
+
+function setupVisitCounter() {
+  const el = document.getElementById('visit-counter');
+  const countEl = document.getElementById('visit-count');
+  const statusEl = document.getElementById('visit-status');
+  if (!el || !countEl || !statusEl) return;
+  if (!authorizeVisitCounter()) return;
+
+  const counterKey = 'snep-visit-counter-count';
+  let count = Number(localStorage.getItem(counterKey) || 0);
+  const online = navigator.onLine;
+  if (online) {
+    count += 1;
+    try { localStorage.setItem(counterKey, count); } catch (e) {}
+  }
+  countEl.textContent = count;
+  statusEl.textContent = online ? 'online' : 'offline';
+  el.classList.remove('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var savedLang = null;
+  try { savedLang = localStorage.getItem('snep-lang'); } catch (e) {}
+  const urlLang = getLangFromURL();
+  setLang(urlLang || savedLang || detectLang());
+  setupVisitCounter();
+});
+</script>
+<script src="editor.js"></script>
+</body>
+</html>

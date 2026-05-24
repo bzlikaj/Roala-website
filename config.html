@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Config QR — Roala Kodheli</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: #FFF0F5;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 8px 40px rgba(212,120,154,0.15);
+  }
+  h1 {
+    font-size: 1.4rem;
+    color: #7B3F6E;
+    margin-bottom: 0.3rem;
+  }
+  p.sub {
+    font-size: 0.9rem;
+    color: #999;
+    margin-bottom: 1.8rem;
+  }
+  label {
+    display: block;
+    font-weight: 700;
+    color: #5A2E50;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+  input[type="url"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #F5D0DF;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    outline: none;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+  }
+  input[type="url"]:focus { border-color: #D4789A; }
+  button {
+    background: #7B3F6E;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 0.75rem 1.8rem;
+    font-size: 1rem;
+    font-family: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.2s;
+  }
+  button:hover { background: #5A2E50; }
+  .qr-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+  .qr-item {
+    text-align: center;
+  }
+  .qr-item .lbl {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #7B3F6E;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .qr-box {
+    background: #fff;
+    border: 2px solid #F5D0DF;
+    border-radius: 12px;
+    padding: 8px;
+    display: inline-block;
+  }
+  .qr-box canvas, .qr-box img { display: block; }
+  .note {
+    margin-top: 1.5rem;
+    background: #FFF0F5;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: #7B3F6E;
+    line-height: 1.6;
+  }
+  .note strong { display: block; margin-bottom: 0.3rem; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>🔧 Configurazione QR Code</h1>
+  <p class="sub">Pagina privata — non condividere questo link</p>
+
+  <label>URL del tuo sito Netlify:</label>
+  <input type="url" id="siteUrl" placeholder="https://roala.netlify.app" autocomplete="off"/>
+  <button onclick="generate()">✨ Genera QR Code</button>
+
+  <div class="qr-grid hidden" id="qrGrid">
+    <div class="qr-item">
+      <div class="lbl">🏠 Home</div>
+      <div class="qr-box"><div id="qr-main"></div></div>
+    </div>
+    <div class="qr-item">
+      <div class="lbl">🛍 Prodotti</div>
+      <div class="qr-box"><div id="qr-products"></div></div>
+    </div>
+    <div class="qr-item">
+      <div class="lbl">🌟 Unisciti</div>
+      <div class="qr-box"><div id="qr-join"></div></div>
+    </div>
+  </div>
+
+  <div class="note hidden" id="noteBox">
+    <strong>📸 Come salvare i QR:</strong>
+    Tieni premuto su ogni QR → "Salva immagine" (su telefono)<br>
+    Oppure: clic destro → "Salva immagine come" (su PC)
+  </div>
+</div>
+
+<script>
+function makeQR(id, url) {
+  const el = document.getElementById(id);
+  el.innerHTML = '';
+  new QRCode(el, {
+    text: url,
+    width:  110,
+    height: 110,
+    colorDark:  '#5A2E50',
+    colorLight: '#FFFFFF',
+    correctLevel: QRCode.CorrectLevel.M
+  });
+}
+
+function generate() {
+  const base = document.getElementById('siteUrl').value.trim().replace(/\/$/, '');
+  if (!base) { alert('Inserisci prima l\'URL del sito!'); return; }
+  makeQR('qr-main',     base + '/index.html');
+  makeQR('qr-products', base + '/produktet.html');
+  makeQR('qr-join',     base + '/bashkohu.html');
+  document.getElementById('qrGrid').classList.remove('hidden');
+  document.getElementById('noteBox').classList.remove('hidden');
+}
+
+// Auto-fill se già su Netlify
+window.addEventListener('load', () => {
+  if (window.location.protocol !== 'file:') {
+    const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '');
+    document.getElementById('siteUrl').value = base;
+  }
+});
+</script>
+<script src="editor.js"></script>
+</body>
+</html>

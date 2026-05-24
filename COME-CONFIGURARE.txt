@@ -1,0 +1,145 @@
+╔══════════════════════════════════════════════════════════════╗
+║    ROALA KODHELI — SNEP WEBSITE — GUIDA CONFIGURAZIONE       ║
+╚══════════════════════════════════════════════════════════════╝
+
+I file del sito sono 3 pagine HTML + 1 foglio CSS:
+  • index.html      → Pagina Hub (landing principale)
+  • produktet.html  → Pagina Prodotti
+  • bashkohu.html   → Pagina Business / Unisciti
+  • style.css       → Stile grafico (non toccare)
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PASSO 1 — CARICA I FILE SU UN HOSTING WEB
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Carica TUTTI E 4 I FILE nella stessa cartella del tuo hosting
+(es. Hostinger, Aruba, Netlify, ecc.).
+
+Esempio struttura sul server:
+  /public_html/
+       ├── index.html
+       ├── produktet.html
+       ├── bashkohu.html
+       └── style.css
+
+Alternativa GRATUITA e veloce → Netlify Drop:
+  1. Vai su https://app.netlify.com/drop
+  2. Trascina la cartella "snep-website" nell'area indicata
+  3. In 30 secondi hai un link tipo:  https://nome-casuale.netlify.app
+  4. Puoi rinominarlo in qualcosa come: https://snep-mia.netlify.app
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PASSO 2 — CONFIGURA I QR CODE (solo dalla pagina index.html)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Una volta online:
+
+  1. Apri nel browser:  https://tuo-dominio.com/index.html
+  2. In cima alla sezione centrale vedrai questo campo:
+
+       🔗 URL i faqes tuaj (për QR-kodet): [ __________ ] [Përditëso QR]
+
+  3. Inserisci il tuo URL base, ad esempio:
+         https://snep-mia.netlify.app
+
+  4. Clicca il pulsante  "Përditëso QR"
+
+  I QR code si aggiornano automaticamente così:
+    • QR "Produktet"  →  punta a  https://tuo-dominio.com/produktet.html
+    • QR "Bashkohu"   →  punta a  https://tuo-dominio.com/bashkohu.html
+    • QR grande (hub) →  punta a  https://tuo-dominio.com/index.html
+
+  ⚠️  NOTA: Ogni singola pagina (produktet.html e bashkohu.html)
+  genera già il proprio QR automaticamente usando il proprio URL.
+  Non serve configurare nulla su quelle pagine.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PASSO 3 — SALVA/STAMPA I QR CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Per salvare un QR code come immagine:
+  1. Apri la pagina nel browser
+  2. Tasto destro sul QR code → "Salva immagine come..."
+  3. Salvala come PNG
+  4. Usala su volantini, biglietti da visita, Instagram, ecc.
+
+Per stamparlo:  File → Stampa → solo la sezione con il QR
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  I TUOI 3 LINK DA CONDIVIDERE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dopo il caricamento avrai 3 link distinti:
+
+  📌 Link HUB (mostra entrambe le pagine):
+     https://tuo-dominio.com/index.html
+     → Da condividere su Instagram bio, WhatsApp, ecc.
+
+  🌿 Link PRODOTTI:
+     https://tuo-dominio.com/produktet.html
+     → Per chi vuole solo comprare prodotti
+
+  🌟 Link BUSINESS:
+     https://tuo-dominio.com/bashkohu.html
+     → Per chi vuole aprire il proprio business
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PERSONALIZZAZIONI RAPIDE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Per aggiungere il tuo numero WhatsApp personale:
+  Apri bashkohu.html con Blocco Note e cerca:
+    +355 69 203 3624
+  Sostituiscilo con il tuo numero.
+
+Per aggiungere la tua email personale:
+  Cerca:  info@snep.al
+  Sostituiscila con la tua email.
+
+Per aggiungere una tua foto o logo:
+  Cerca il tag:  class="about-logo-circle"
+  e sostituisci la lettera "S" con un tag <img>.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  HOSTING GRATUITO CONSIGLIATO — NETLIFY (più semplice)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Vai su:   https://app.netlify.com/drop
+  2. Non serve registrarsi per il primo test
+  3. Trascina la cartella "snep-website" nella pagina
+  4. Aspetta 30 secondi → ottieni subito il tuo link!
+  5. Per un dominio personalizzato: registrati su netlify.com (gratuito)
+     e puoi rinominare il sito come vuoi.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  COME VEDERE IL CONTATORE VISITE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Il sito ha un contatore visite nascosto che puoi vedere solo tu.
+Per attivarlo, usa questo parametro segreto nell'URL di una delle pagine:
+
+  https://roala.netlify.app/index.html?showcounter=roala-view-token
+
+Oppure:
+  https://roala.netlify.app/produktet.html?showcounter=roala-view-token
+  https://roala.netlify.app/bashkohu.html?showcounter=roala-view-token
+
+Dopo il primo accesso, il contatore rimane visibile solo nel browser che hai usato.
+
+  • Mostra il numero totale di visite salvate nel browser
+  • Aggiorna il conteggio solo quando la pagina è online
+  • Non è visibile ai visitatori normali senza il parametro segreto
+
+Se vuoi cambiare la parola segreta, sostituisci il valore
+"roala-view-token" nello script JavaScript di ogni pagina.
+
+──────────────────────────────────────────────────────────────
+  Creato da GitHub Copilot — 10 maggio 2026
+  Snep S.p.A. · https://www.snep.al
+──────────────────────────────────────────────────────────────

@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Roala Kodheli · Diamantë Black Snep</title>
+  <meta name="description" content="Roala Kodheli — Distributrice Autorizzata Snep Diamantë Black. Nënë dhe sipërmarrëse. Zbuloni produktet e mirëqenies ose bashkohuni me ekipin tim."/>
+  <link rel="stylesheet" href="style.css"/>
+  <script>if(localStorage.getItem('snep_v')!=='2'){Object.keys(localStorage).filter(k=>k.startsWith('snep-snap')).forEach(k=>localStorage.removeItem(k));localStorage.setItem('snep_v','2');}</script>
+  <style>
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(255,255,255,0.75);
+      border: 1.5px solid rgba(212,120,154,0.3);
+      border-radius: 50px; padding: 0.45rem 1.1rem;
+      font-size: 0.82rem; font-weight: 700; color: var(--plum);
+      margin-bottom: 1.5rem; backdrop-filter: blur(8px);
+    }
+    .stat-row {
+      display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .stat-item { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 700; color: var(--plum); line-height: 1;
+      background: linear-gradient(135deg, var(--plum), var(--pink));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; margin-top: 0.2rem; letter-spacing: 0.5px; }
+    .divider-ornament {
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
+      color: var(--pink-light); font-size: 1.2rem; margin: 0.5rem 0;
+    }
+    .divider-ornament::before, .divider-ornament::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--pink-light), transparent);
+    }
+    .hero-photo-wrap {
+      width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
+      margin: 0 auto 1.75rem;
+      border: 4px solid rgba(255,255,255,0.9);
+      box-shadow: 0 12px 40px rgba(122,63,110,0.28), 0 0 0 10px rgba(212,120,154,0.15);
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      transform: scale(0.95);
+      transition: transform 0.22s ease, object-position 0.22s ease;
+    }
+    .visit-counter {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.85rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: #3b0a3f;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 16px 30px rgba(0,0,0,0.16);
+      border: 1px solid rgba(255,93,150,0.15);
+    }
+    .visit-counter.hidden { display: none; }
+    .visit-counter .status {
+      font-size: 0.78rem;
+      color: #7a4a6b;
+    }
+  </style>
+</head>
+<body>
+<div id="visit-counter" class="visit-counter hidden">
+  <span>Contatore visite</span>
+  <span class="value" id="visit-count">0</span>
+  <span class="status" id="visit-status">offline</span>
+</div>
+
+<!-- ==================== NAVBAR ==================== -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <div class="navbar-logo"><img src="WhatsApp Image 2026-05-19 at 19.59.47.jpeg" alt="Roala Kodheli"></div>
+    <div>
+      <div class="brand-name">Roala Kodheli</div>
+      <div class="brand-sub" data-i18n="nav.tagline">Distributrice Autorizzata Snep</div>
+    </div>
+  </a>
+  <nav class="navbar-nav">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="al">🇦🇱 AL</button>
+      <button class="lang-btn" data-lang="it">🇮🇹 IT</button>
+      <button class="lang-btn" data-lang="en">🇬🇧 EN</button>
+    </div>
+  </nav>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero hero-landing">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <div class="hero-deco hero-deco-3"></div>
+  <div class="hero-content">
+    <div class="hero-photo-wrap fade-up delay-1">
+      <img src="WhatsApp Image 2026-05-19 at 19.59.47.jpeg" alt="Roala Kodheli">
+    </div>
+    <div class="hero-badge fade-up delay-1">💎 Diamond Black · Snep S.p.A.</div>
+    <p class="hero-eyebrow fade-up delay-1" data-i18n="hero.eyebrow">Albania · Italia · Snep</p>
+    <h1 class="hero-title fade-up delay-2" data-i18n="hero.title">Jam Roala Kodheli</h1>
+    <p class="hero-subtitle fade-up delay-3" data-i18n="hero.subtitle">
+      Distributrice Autorizzata Snep Diamantë Black · Nënë, bashkëshortëse dhe sipërmarrëse — këtu për të udhëhequr drejt mirëqenies dhe lirisë financiare.
+    </p>
+    <div class="hero-actions fade-up delay-4">
+      <a href="produktet.html" class="btn btn-primary btn-lg" data-i18n="hero.btn1">🌿 Shiko Produktet</a>
+      <a href="bashkohu.html"  class="btn btn-outline  btn-lg" data-i18n="hero.btn2">💫 Bashkohu Me Mua</a>
+    </div>
+    <div class="stat-row fade-up delay-4">
+      <div class="stat-item">
+        <div class="stat-num">💎</div>
+        <div class="stat-label" data-i18n="stat1">Diamond Black</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">360°</div>
+        <div class="stat-label" data-i18n="stat2">Mirëqenie 360°</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">🏆</div>
+        <div class="stat-label" data-i18n="stat3">Suksesi në Dorën Tënde</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ROALA SECTION ==================== -->
+<section class="section section-pink">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="roala.tag">La tua consulente</span>
+      <h2 class="section-title" data-i18n="roala.title">Chi sono io</h2>
+    </div>
+    <div class="about-snep reveal">
+      <div class="about-logo-box">
+        <div class="about-logo-circle" style="width:160px;height:160px;"><img src="WhatsApp Image 2026-05-19 at 19.59.47.jpeg" alt="Roala Kodheli" style="width:100%;height:100%;object-fit:cover;object-position:center 38%;transform:scale(0.94);transition:transform 0.18s ease, object-position 0.18s ease;border-radius:50%;"></div>
+        <div>
+          <div class="about-logo-name">Roala Kodheli</div>
+          <div class="about-logo-sub" data-i18n="roala.sub">Consulente Snep · Diamante Black</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3 data-i18n="roala.h3">La mia storia con Snep</h3>
+        <p data-i18n="roala.p1">Sono mamma di due bambini di 7 e 2 anni, e da 3 anni faccio parte della famiglia Snep. In questo percorso ho raggiunto la qualifica di <strong>Diamante Black</strong> — un traguardo che condivido ogni giorno con mio marito, perché questo è un progetto di coppia e di famiglia.</p>
+        <p data-i18n="roala.p2">Snep mi ha dato la libertà di lavorare dai miei ritmi, stare vicino ai miei figli e costruire qualcosa di concreto. Se stai cercando un cambiamento reale nella tua vita, sono qui per guidarti passo dopo passo.</p>
+        <div class="about-badges">
+          <span class="badge" data-i18n="roala.badge.diamond">💎 Diamond Black</span>
+          <span class="badge" data-i18n="roala.badge.years">⭐ 3 vjet në Snep</span>
+          <span class="badge" data-i18n="roala.badge.family">👨‍👩‍👧‍👦 Projekti familjar</span>
+          <span class="badge" data-i18n="roala.badge.geo">🌍 Shqipëri &amp; Itali</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== MAIN CARDS ==================== -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-tag" data-i18n="cards.tag">Zgjidhni rrugën tuaj</span>
+      <h2 class="section-title" data-i18n="cards.title">Çfarë Ofrojmë</h2>
+      <p class="section-subtitle" data-i18n="cards.sub">
+        Dy mundësi, një mision: mirëqenia juaj dhe suksesi juaj financiar.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+
+      <!-- CARD 1 — Products -->
+      <div class="feature-card reveal">
+        <div class="feature-card-header">
+          <div class="feature-icon feature-icon-products">🌿</div>
+          <h3 data-i18n="card1.title">Produktet e Mirëqenies</h3>
+          <p data-i18n="card1.desc">
+            Suplemente ushqimore, kozmetikë premium dhe produkte mjedisore të certifikuara nga Snep S.p.A.
+            Formuluar nga mjekë dhe nutricionistë — për shëndetin dhe bukurinë tuaj çdo ditë.
+          </p>
+        </div>
+        <div class="feature-card-body">
+          <div class="feature-card-actions">
+            <a href="produktet.html" class="btn btn-primary" data-i18n="card1.btn">Zbuloni Produktet ✨</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 — Join -->
+      <div class="feature-card reveal" style="transition-delay:0.15s">
+        <div class="feature-card-header">
+          <div class="feature-icon feature-icon-join">🌟</div>
+          <h3 data-i18n="card2.title">Bashkohu me Mua</h3>
+          <p data-i18n="card2.desc">
+            Bëhu distributor i pavarur Snep dhe ndërto biznesin tënd. Liri financiare, orë pune fleksibël
+            dhe mbështetje e plotë nga ekipi im. Pa kufizime gjeografike!
+          </p>
+        </div>
+        <div class="feature-card-body">
+          <div class="feature-card-actions">
+            <a href="bashkohu.html" class="btn btn-secondary" data-i18n="card2.btn">Bashkohu Tani 💫</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ABOUT SNEP ==================== -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-tag" data-i18n="about.tag">Kush jemi</span>
+      <h2 class="section-title" data-i18n="about.title">Rreth Snep S.p.A.</h2>
+    </div>
+    <div class="about-snep reveal">
+      <div class="about-logo-box">
+        <div class="about-logo-circle"><img src="logo-snep.png" alt="Snep S.p.A." style="width:80%;height:80%;object-fit:contain;border-radius:0;"></div>
+        <div>
+          <div class="about-logo-name">Snep S.p.A.</div>
+          <div class="about-logo-sub">Made in Italy · Dal 2014</div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h3 data-i18n="about.h3">Kompania Italiane e Mirëqenies</h3>
+        <p data-i18n="about.p1">
+          Snep S.p.A. u krijua në vitin 2014 nga Giorgio Burgalassi, pas një karriere të gjatë si
+          rrjetëtar profesionist. Misioni ynë: të ofrojmë mirëqenie 360 gradë me produkte
+          të cilësisë më të lartë.
+        </p>
+        <p data-i18n="about.p2">
+          Anëtare e Avedisco dhe e renditur nga Instituti Gjerman ITQF (2021-2022) në mesin e
+          600 kompanive italiane me rritje më të lartë. Partner zyrtar i Fiorentina FC.
+          Produktet tona janë formuluara me mjekët, nutricionistët dhe ekspertët e bukurisë.
+        </p>
+        <div class="about-badges">
+          <span class="badge">✓ Avedisco</span>
+          <span class="badge" data-i18n="about.badge.certification">✓ Certifikim Italian</span>
+          <span class="badge">✓ ITQF 2021–2022</span>
+          <span class="badge">✓ Partner Fiorentina</span>
+          <span class="badge" data-i18n="about.badge.law">✓ Ligjit 173/2005</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
+  <div class="footer-logo">Roala Kodheli</div>
+  <div class="footer-tagline" data-i18n="footer.tag">
+    Zgjidhja Juaj për Mirëqenien
+  </div>
+  <div class="footer-links">
+    <a href="http://www.mysnep.com/390176089" target="_blank" rel="noopener">mysnep.com</a>
+    <a href="produktet.html" data-i18n="nav.products">Produktet</a>
+    <a href="https://wa.me/393792880067" target="_blank" rel="noopener">💬 WhatsApp</a>
+  </div>
+  <hr class="footer-divider"/>
+  <div class="footer-copy" data-i18n="footer.copy">
+    © 2024 Snep S.p.A. · P.IVA M12110004k · Të gjitha të drejtat e rezervuara
+  </div>
+</footer>
+
+<!-- ==================== JS ==================== -->
+<script>
+/* ---- Translations ---- */
+const T = {
+  al: {
+    "nav.tagline":    "Distributore e Autorizuar Snep",
+    "hero.eyebrow":   "Roala Kodheli · Mirëqenia · Bukuria · Biznesi",
+    "hero.title":     "Mirë se vini në Botën e Mirëqenies dhe Suksesit",
+    "hero.subtitle":  "Distributore e Autorizuar Snep nga Nëntori 2022",
+    "hero.btn1":      "🌿 Shiko Produktet",
+    "hero.btn2":      "💫 Bashkohu Me Mua",
+    "stat1": "Diamond Black", "stat2": "Mirëqenie 360°", "stat3": "Suksesi në Dorën Tënde",
+    "cards.tag":      "Zgjidhni rrugën tuaj",
+    "cards.title":    "Çfarë Ofrojmë",
+    "cards.sub":      "Dy mundësi, një mision: mirëqenia juaj dhe suksesi juaj financiar.",
+    "card1.title":    "Në Formë në 360°",
+    "card1.desc":     "Ofroj programe bimore, të certifikuara dhe Made in Italy që të ndihmojnë në procesin e humbjes së peshës. Pa dieta drastike dhe pa stres.",
+    "card1.btn":      "Zbuloni Produktet ✨",
+    "card2.title":    "Bashkohu me Ekipin Tim",
+    "card2.desc":     "Ofroj këtë mundësi pune çdo vajze dhe gruaje që dëshiron të krijojë biznesin e saj me zero investime. Pa eksperiencë, pa kufizime gjeografike!",
+    "card2.btn":      "Bashkohu Tani 💫",
+    "about.tag":      "Kush jemi",
+    "about.title":    "Rreth Snep S.p.A.",
+    "about.h3":       "Kompania Italiane e Mirëqenies",
+    "about.p1":       "Snep S.p.A. u krijua në vitin 2014 nga Giorgio Burgalassi, pas një karriere të gjatë si Networker Profesionist. Misioni ynë: të ofrojmë mirëqenie në 360° me produkte të cilësisë më të lartë.",
+    "about.p2":       "Anëtare e Avedisco dhe e renditur nga Instituti Gjerman ITDF (2021-2022) në mesin e 600 kompanive Italiane me rritje më të lartë. Produktet tona janë formuluar nga mjekë, nutricionistë dhe ekspertë të bukurisë.",
+    "about.badge.certification": "✓ Certifikim Italian",
+    "about.badge.law": "✓ Ligjit 173/2005",
+    "footer.tag":     "Zgjidhja Juaj për Mirëqenien",
+    "footer.copy":    "© 2026 Roala Kodheli · Distributore e Autorizuar Snep S.p.A. · Të gjitha të drejtat e rezervuara",
+    "roala.tag":      "Konsulentja jote",
+    "roala.title":    "Kush jam unë",
+    "roala.sub":      "Distributore e Autorizuar Snep · Diamond Black",
+    "roala.h3":       "Historia ime në Snep",
+    "roala.p1":       "Jam nënë e dy fëmijëve, Erik dhe Isabel, bashkëshortë dhe Networkere Pro. Nga nëntori 2022 jam pjesë e familjes Snep. Në këtë udhëtim kam arritur kualifikimin e lartë <strong>Diamond Black</strong> në më pak se 3 vite — duke ndërtuar një skuadër të madhe me vajza dhe gra shqiptare në gjithë Europën.",
+    "roala.p2":       "Snep më dha lirinë të unoj sipas ritmit tim, të jem pranë fëmijëve të mi dhe të ndërtoj diçka konkrete. Sot punoj bashkë me bashkëshortin tim dhe e kemi kthyer në një projekt të vërtetë familjar.",
+    "roala.badge.diamond": "💎 Diamond Black",
+    "roala.badge.years": "⭐ 3 vite në Snep",
+    "roala.badge.family": "👨‍👩‍👧‍👦 Projekti familjar",
+    "roala.badge.geo": "🌍 Shqipëri & Europe",
+    "nav.products":   "Produktet", "nav.join": "Bashkohu", "nav.contact": "Kontaktet"
+  },
+  it: {
+    "nav.tagline":    "Distributrice Autorizzata Snep",
+    "hero.eyebrow":   "Roala Kodheli · Benessere · Bellezza · Business",
+    "hero.title":     "Benvenuti nel Mondo del Benessere e del Successo",
+    "hero.subtitle":  "Distributrice Autorizzata Snep dal Novembre 2022",
+    "hero.btn1":      "🌿 Vedi i Prodotti",
+    "hero.btn2":      "💫 Unisciti a Me",
+    "stat1": "Diamond Black", "stat2": "Benessere 360°", "stat3": "Il Successo è Tuo",
+    "cards.tag":      "Scegliete il vostro percorso",
+    "cards.title":    "Cosa Offriamo",
+    "cards.sub":      "Due opportunità, una missione: il vostro benessere e il vostro successo finanziario.",
+    "card1.title":    "In Forma al 360°",
+    "card1.desc":     "Offro programmi a base vegetale, certificati e Made in Italy che ti aiutano nel processo di perdita di peso. Senza diete drastiche e senza stress.",
+    "card1.btn":      "Scopri i Prodotti ✨",
+    "card2.title":    "Unisciti al Mio Team",
+    "card2.desc":     "Offro questa opportunità di lavoro a ogni ragazza e donna che vuole creare il proprio business con zero investimenti. Senza esperienza, senza limiti geografici!",
+    "card2.btn":      "Unisciti Ora 💫",
+    "about.tag":      "Chi siamo",
+    "about.title":    "Chi è Snep S.p.A.",
+    "about.h3":       "L'Azienda Italiana del Benessere",
+    "about.p1":       "Snep S.p.A. è nata nel 2014 da Giorgio Burgalassi, dopo una lunga carriera come Networker Professionista. La nostra missione: offrire benessere a 360° con prodotti della massima qualità.",
+    "about.p2":       "Membro di Avedisco e classificata dall'Istituto Tedesco ITDF (2021-2022) tra le 600 aziende italiane con la crescita più alta. I nostri prodotti sono formulati da medici, nutrizionisti ed esperti di bellezza.",
+    "about.badge.certification": "✓ Certificazione Italiana",
+    "about.badge.law": "✓ Legge 173/2005",
+    "footer.tag":     "La Vostra Soluzione per il Benessere",
+    "footer.copy":    "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A. · Tutti i diritti riservati",
+    "roala.tag":      "La tua consulente",
+    "roala.title":    "Chi sono io",
+    "roala.sub":      "Distributrice Autorizzata Snep · Diamond Black",
+    "roala.h3":       "La mia storia in Snep",
+    "roala.p1":       "Sono mamma di due bambini, Erik e Isabel, moglie e Networker Pro. Dal novembre 2022 faccio parte della famiglia Snep. In questo percorso ho raggiunto la qualifica di <strong>Diamond Black</strong> in meno di 3 anni — costruendo una grande squadra di ragazze e donne albanesi in tutta Europa.",
+    "roala.p2":       "Snep mi ha dato la libert\u00e0 di lavorare al mio ritmo, stare vicino ai miei figli e costruire qualcosa di concreto. Oggi lavoro insieme a mio marito e lo abbiamo trasformato in un vero progetto di famiglia.",
+    "roala.badge.diamond": "💎 Diamond Black",
+    "roala.badge.years": "⭐ 3 anni in Snep",
+    "roala.badge.family": "👨‍👩‍👧‍👦 Progetto di famiglia",
+    "roala.badge.geo": "🌍 Albania & Europa",
+    "nav.products":   "Prodotti", "nav.join": "Unisciti", "nav.contact": "Contatti"
+  },
+  en: {
+    "nav.tagline":    "Authorized Snep Distributor",
+    "hero.eyebrow":   "Roala Kodheli · Wellness · Beauty · Business",
+    "hero.title":     "Welcome to the World of Wellness and Success",
+    "hero.subtitle":  "Authorized Snep Distributor since November 2022",
+    "hero.btn1":      "🌿 See Products",
+    "hero.btn2":      "💫 Join Me",
+    "stat1": "Diamond Black", "stat2": "360° Wellness", "stat3": "Success in Your Hands",
+    "cards.tag":      "Choose your path",
+    "cards.title":    "What We Offer",
+    "cards.sub":      "Two opportunities, one mission: your wellness and your financial success.",
+    "card1.title":    "360° Wellness Programs",
+    "card1.desc":     "I offer plant-based programs, certified and Made in Italy to help you in the weight loss process. No drastic diets and no stress.",
+    "card1.btn":      "Discover Products ✨",
+    "card2.title":    "Join My Team",
+    "card2.desc":     "I offer this work opportunity to every girl and woman who wants to create their own business with zero investment. No experience required, no geographical limits!",
+    "card2.btn":      "Join Now 💫",
+    "about.tag":      "Who we are",
+    "about.title":    "About Snep S.p.A.",
+    "about.h3":       "The Italian Wellness Company",
+    "about.p1":       "Snep S.p.A. was founded in 2014 by Giorgio Burgalassi, after a long career as a Professional Networker. Our mission: to offer 360° wellness with the highest quality products.",
+    "about.p2":       "Member of Avedisco and ranked by the German Institute ITDF (2021-2022) among the 600 Italian companies with the highest growth. Our products are formulated by doctors, nutritionists and beauty experts.",
+    "about.badge.certification": "✓ Italian Certification",
+    "about.badge.law": "✓ Law 173/2005",
+    "footer.tag":     "Your Solution for Wellness",
+    "footer.copy":    "© 2026 Roala Kodheli · Authorized Snep S.p.A. Distributor · All rights reserved",
+    "roala.tag":      "Your consultant",
+    "roala.title":    "Who I am",
+    "roala.sub":      "Authorized Snep Distributor · Diamond Black",
+    "roala.h3":       "My story in Snep",
+    "roala.p1":       "I am a mother of two children, Erik and Isabel, wife and Pro Networker. Since November 2022 I have been part of the Snep family. In this journey I reached the <strong>Diamond Black</strong> qualification in less than 3 years — building a large team of Albanian girls and women across Europe.",
+    "roala.p2":       "Snep gave me the freedom to work at my own pace, stay close to my children and build something real. Today I work together with my husband and we have turned it into a true family project.",
+    "roala.badge.diamond": "💎 Diamond Black",
+    "roala.badge.years": "⭐ 3 years in Snep",
+    "roala.badge.family": "👨‍👩‍👧‍👦 Family project",
+    "roala.badge.geo": "🌍 Albania & Europe",
+    "nav.products":   "Products", "nav.join": "Join", "nav.contact": "Contacts"
+  }
+};
+
+// Dynamic year counter for the 'roala.badge.years' label.
+function getSnepYears() {
+  const startYear = 2022; // Roala joined in November 2022
+  const now = new Date();
+  let years = now.getFullYear() - startYear;
+  // If it's before November 1st of the current year, subtract one
+  if (now.getMonth() < 10 || (now.getMonth() === 10 && now.getDate() < 1)) {
+    years -= 1;
+  }
+  if (years < 0) years = 0;
+  return years;
+}
+
+function updateSnepYearLabels() {
+  const n = getSnepYears();
+  T.al['roala.badge.years'] = (n === 1) ? `⭐ ${n} vit në Snep` : `⭐ ${n} vjet në Snep`;
+  T.it['roala.badge.years'] = (n === 1) ? `⭐ ${n} anno in Snep` : `⭐ ${n} anni in Snep`;
+  T.en['roala.badge.years'] = (n === 1) ? `⭐ ${n} year in Snep` : `⭐ ${n} years in Snep`;
+}
+
+let currentLang = 'al';
+
+function setLang(lang) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach((b,i) => {
+    b.classList.toggle('active', ['al','it','en'][i] === lang);
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (T[lang] && T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  document.documentElement.lang = lang === 'al' ? 'sq' : lang;
+}
+
+/* ---- Reveal on scroll ---- */
+function initReveal() {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+/* ---- Init ---- */
+function getLangFromURL() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const lang = params.get('lang');
+    return ['al','it','en'].includes(lang) ? lang : null;
+  } catch (e) {
+    return null;
+  }
+}
+
+function updateInternalLinks(lang) {
+  if (!lang) return;
+  document.querySelectorAll('a[href]').forEach(el => {
+    const href = el.getAttribute('href');
+    if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.match(/^[a-z]+:/i)) return;
+    if (!href.endsWith('.html') && href.indexOf('.html?') === -1) return;
+    try {
+      const url = new URL(href, window.location.href);
+      url.searchParams.set('lang', lang);
+      el.setAttribute('href', url.pathname + url.search);
+    } catch (e) {}
+  });
+}
+
+function detectLang() {
+  const urlLang = getLangFromURL();
+  if (urlLang) return urlLang;
+  const lang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  if (lang.startsWith('sq') || lang.startsWith('al')) return 'al';
+  if (lang.startsWith('it')) return 'it';
+  return 'en';
+}
+
+function authorizeVisitCounter() {
+  const secret = 'roala-view-token';
+  const authKey = 'snep-visit-counter-auth';
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('showcounter');
+  if (token === secret) {
+    try { localStorage.setItem(authKey, secret); } catch (e) {}
+    return true;
+  }
+  return localStorage.getItem(authKey) === secret;
+}
+
+function setupVisitCounter() {
+  const el = document.getElementById('visit-counter');
+  const countEl = document.getElementById('visit-count');
+  const statusEl = document.getElementById('visit-status');
+  if (!el || !countEl || !statusEl) return;
+  if (!authorizeVisitCounter()) return;
+
+  const counterKey = 'snep-visit-counter-count';
+  let count = Number(localStorage.getItem(counterKey) || 0);
+  const online = navigator.onLine;
+  if (online) {
+    count += 1;
+    try { localStorage.setItem(counterKey, count); } catch (e) {}
+  }
+  countEl.textContent = count;
+  statusEl.textContent = online ? 'online' : 'offline';
+  el.classList.remove('hidden');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateSnepYearLabels();
+  const savedLang = localStorage.getItem('snep-lang');
+  const urlLang = getLangFromURL();
+  const lang = urlLang || savedLang || detectLang();
+  setLang(lang);
+  updateInternalLinks(lang);
+  initReveal();
+  setupVisitCounter();
+});
+</script>
+<script src="editor.js"></script>
+</body>
+</html>
