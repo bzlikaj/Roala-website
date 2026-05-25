@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Roala Kodheli — Behu Pjesë e Ekipit Tim</title>
   <meta name="description" content="Roala Kodheli · Distributore e Autorizuar Snep S.p.A. — Ndërto biznesin tënd me zero investime. Bashkohu ekipit tim sot!"/>
+  <!-- Google Analytics 4: replace G-XXXXXXXXXX with your measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <link rel="stylesheet" href="style.css"/>
   <script>if(localStorage.getItem('snep_v')!=='2'){Object.keys(localStorage).filter(k=>k.startsWith('snep-snap')).forEach(k=>localStorage.removeItem(k));localStorage.setItem('snep_v','2');}</script>
   <style>
@@ -691,5 +699,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="editor.js"></script>
+  <div class="page-view-badge" data-page-key="bashkohu">Caricamento visualizzazioni...</div>
+  <script src="visitor-counter.js"></script>
 </body>
 </html>

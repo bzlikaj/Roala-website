@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Roala Kodheli — Në Formë në 360°</title>
   <meta name="description" content="Roala Kodheli · Distributore e Autorizuar Snep S.p.A. — Programe bimore, të certifikuara dhe Made in Italy për humbje peshe pa stres."/>
+  <!-- Google Analytics 4: replace G-XXXXXXXXXX with your measurement ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
   <link rel="stylesheet" href="style.css"/>
   <script>if(localStorage.getItem('snep_v')!=='2'){Object.keys(localStorage).filter(k=>k.startsWith('snep-snap')).forEach(k=>localStorage.removeItem(k));localStorage.setItem('snep_v','2');}</script>
   <style>
@@ -83,16 +91,40 @@
       overflow: hidden; position: relative; border: 1px solid rgba(255, 88, 170, 0.16);
       text-align: left;
     }
+    .promo-card-note {
+      padding: 0.9rem 1.2rem;
+      background: linear-gradient(135deg, rgba(255, 60, 120, 0.12), rgba(255, 133, 84, 0.12));
+      color: #9b2c6b;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-bottom: 1px solid rgba(255, 88, 170, 0.14);
+    }
     .promo-card::before {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
       background: radial-gradient(circle at top right, rgba(255, 70, 179, 0.15), transparent 32%);
     }
     .promo-image-wrapper {
-      width: 100%; height: 360px; background: #f8f3fb;
+      width: 100%; height: 360px; background: #f8f3fb; position: relative;
       display: flex; align-items: center; justify-content: center;
       padding: 1.5rem;
       box-sizing: border-box;
+    }
+    .promo-ribbon {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: linear-gradient(135deg, #ff3d80, #ff8c4a);
+      color: white;
+      font-weight: 800;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      box-shadow: 0 12px 28px rgba(255, 60, 120, 0.12);
+      text-transform: uppercase;
     }
     .promo-card img {
       width: auto; height: 100%; max-width: 100%; max-height: 100%;
@@ -138,6 +170,13 @@
       padding: 0.8rem 1rem; border-radius: 999px;
       letter-spacing: 0.08em; font-size: 0.95rem;
       max-width: fit-content;
+    }
+    .promo-card-subnote {
+      margin-top: 0.75rem;
+      color: #bf2163;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
     .promo-btn {
       margin-top: auto;
@@ -261,11 +300,11 @@
   <div class="container">
     <div class="section-header reveal" style="text-align:center;padding:4rem 0;">
       <h2 class="section-title" style="font-size:4rem;letter-spacing:0.12em;" data-i18n="promo.section">PROMOT AKTUALE</h2>
-      <p class="promo-note" data-i18n="promo.note">Promo deri më 28 maj 2026</p>
     </div>
     <div class="promo-grid reveal">
       <div class="promo-card">
-        <div class="promo-image-wrapper">
+          <div class="promo-card-note" data-i18n="promo1.note">Ofertë speciale e vlefshme deri më 28 maj 2026</div>
+      <div class="promo-image-wrapper">
           <img src="624c2775-dae6-4553-ba05-5b0553b2a394.jpg" alt="Kit Ready for Summer" />
         </div>
         <div class="promo-card-content">
@@ -283,7 +322,8 @@
         </div>
       </div>
       <div class="promo-card">
-        <div class="promo-image-wrapper">
+          <div class="promo-card-note" data-i18n="promo2.note">Ofertë speciale e vlefshme deri më 28 maj 2026</div>
+      <div class="promo-image-wrapper">
           <img src="e911535a-06f6-44c5-b0ba-194771bc4696.jpg" alt="Kit Madh" />
         </div>
         <div class="promo-card-content">
@@ -301,19 +341,27 @@
         </div>
       </div>
       <div class="promo-card">
-        <div class="promo-image-wrapper">
-          <img src="4e39e94f-5060-4f65-b226-dac1c2df028a.jpg" alt="Promo në Kosovë dhe Maqedoni" />
-        </div>
+          <div class="promo-card-note" data-i18n="promo3.note">Ofertë speciale e vlefshme deri më 31 maj 2026</div>
+      <div class="promo-image-wrapper">
+            <img src="promo/a56f1f35-d226-4ef3-8b3b-51a1928754cc.jpg" alt="Promo në të gjithë Evropën, përjashto Shqipërinë" />
+            <div class="promo-ribbon" data-i18n="promo3.ribbon">PROMO IN TUTTA EUROPA ESCLUSO ALBANIA</div>
+          </div>
         <div class="promo-card-content">
           <div class="promo-meta">
-            <span class="promo-badge" data-i18n="promo3.wow">PROMO NE KOSOVE DHE MAQEDONI</span>
+            <span class="promo-badge" data-i18n="promo3.wow">SUPER PROMO OLIVOX</span>
           </div>
           <h3 data-i18n="promo3.title">Olivox Special</h3>
-          <p data-i18n="promo3.desc">Duke blere 4 shishe Olivox, dhurate maskat sincera. Deri me 28 maj.</p>
+          <p data-i18n="promo3.desc">
+            DYFISHO OLIVOX... dhe perfito DHURATE maskat per fytyre.<br><br>
+            Nje promo menduar per mireqenien tende, jashte dhe brenda.<br><br>
+            Vetem per nje periudhe te limituar, deri me 31 maj 2026
+          </p>
+          <div style="font-weight:800; margin-top:0.25rem; margin-bottom:0.5rem;">OLIVOX</div>
           <ul class="promo-features">
-            <li data-i18n="promo3.feature1">Olivox - nje suplement bimor i lengshem.</li>
-            <li data-i18n="promo3.feature2">Ndihmon ne eliminimin e fryerjes.</li>
-            <li data-i18n="promo3.feature3">Permireson trerjen dhe pastron organizmin.</li>
+            <li data-i18n="promo3.feature1">nje suplement bimor i lengshem</li>
+            <li data-i18n="promo3.feature2">ndihmon ne eliminimin e fryerjes</li>
+            <li data-i18n="promo3.feature3">permireson trerjen</li>
+            <li data-i18n="promo3.feature4">pastron organizmin</li>
           </ul>
           <a href="https://wa.me/393792880067" target="_blank" rel="noopener" class="btn promo-btn" data-i18n="promo3.btn">Më shumë detaje</a>
         </div>
@@ -410,11 +458,12 @@ const T = {
     "cta.btn1": "💬 Kontaktomë në WhatsApp",
     "cta.btn2": "🛍️ Shiko Katalogun",
     "promo.section": "PROMOT AKTUALE",
-    "promo.note": "Promo deri më 28 maj 2026",
+    "promo.note": "Offerta speciale: prime 2 promo fino al 28 maggio 2026, terza promo fino al 31 maggio 2026",
     "promo1.wow": "SUPER PROMO SUNCARE",
     "promo1.chip": "Vlera më e mirë",
     "promo1.title": "Kit Light",
     "promo1.desc": "Zgjidh 3 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.",
+    "promo1.note": "Ofertë speciale e vlefshme deri më 28 maj 2026",
     "promo1.feature1": "Suplement bimor që ndihmon mbrojtjen e lëkurës ndaj diellit.",
     "promo1.feature2": "Për një nxirje uniforme dhe kundër plakjes së lëkurës.",
     "promo1.feature3": "Dhe DHURATË: PORTOFOLI PLAZHIT SUNCARE",
@@ -422,16 +471,21 @@ const T = {
     "promo2.wow": "SUPER PROMO SUNCARE",
     "promo2.title": "Kit Madh",
     "promo2.desc": "Zgjidh 5 produkte nga linja jonë SunCare + Bronxe Prepare. Një mbrojtje maksimale dhe cilësia Made in Italy.",
+    "promo2.note": "Ofertë speciale e vlefshme deri më 28 maj 2026",
     "promo2.feature1": "Nje suplement bimor qe ndihmon ne mbrojtjen e lekures ndaj diellit.",
     "promo2.feature2": "Per nje nxirje uniforme dhe kunder plakjes se lekures.",
     "promo2.feature3": "Dhe DHURATE: CANTA PLAZHIT + CANTA TERMIKE",
     "promo2.btn": "Më shumë detaje",
-    "promo3.wow": "PROMO NE KOSOVE DHE MAQEDONI",
+    "promo3.ribbon": "PROMO NE TË GJITHË EVROPËN, PËRJASHTU SHQIPËRINË",
+    "promo3.wow": "SUPER PROMO OLIVOX",
     "promo3.title": "Olivox Special",
-    "promo3.desc": "Duke blere 4 shishe Olivox, dhurate maskat sincera. Deri me 28 maj.",
-    "promo3.feature1": "Olivox - nje suplement bimor i lengshem.",
-    "promo3.feature2": "Ndihmon ne eliminimin e fryerjes.",
-    "promo3.feature3": "Permireson trerjen dhe pastron organizmin.",
+    "promo3.desc": "DYFISHO OLIVOX... dhe perfito DHURATE maskat per fytyre.<br><br>Nje promo menduar per mireqenien tende, jashte dhe brenda.<br><br>Vetem per nje periudhe te limituar, deri me 31 maj 2026.",
+    "promo3.note": "Ofertë speciale e vlefshme deri më 31 maj 2026",
+    "promo3.feature1": "nje suplement bimor i lengshem",
+    "promo3.feature2": "ndihmon ne eliminimin e fryerjes",
+    "promo3.feature3": "permireson trerjen",
+    "promo3.feature4": "pastron organizmin",
+
     "promo3.btn": "Më shumë detaje",
     "footer.tag": "Zgjidhja Juaj për Mirëqenien",
     "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
@@ -483,27 +537,29 @@ const T = {
     "cta.btn1": "💬 Contattami su WhatsApp",
     "cta.btn2": "🛍️ Vedi il Catalogo",
     "promo.section": "PROMO ATTUALE",
-    "promo.note": "Offerta speciale fino al 28 maggio 2026",
+    "promo.note": "Offerta speciale: prime 2 promo fino al 28 maggio 2026, terza promo fino al 31 maggio 2026",
     "promo1.wow": "SUPER PROMO SUNCARE",
     "promo1.title": "Kit Light",
-    "promo1.desc": "Scegli 3 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",
-    "promo1.feature1": "Integratore botanico per proteggere la pelle dal sole.",
+    "promo1.desc": "Scegli 3 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",    "promo1.note": "Offerta speciale valida fino al 28 maggio 2026",    "promo1.feature1": "Integratore botanico per proteggere la pelle dal sole.",
     "promo1.feature2": "Per un'abbronzatura uniforme e contro l'invecchiamento della pelle.",
     "promo1.feature3": "E IN REGALO: LA BORSA DA MARE SUNCARE",
     "promo1.btn": "Scopri di più",
     "promo2.wow": "SUPER PROMO SUNCARE",
     "promo2.title": "Kit Grande",
-    "promo2.desc": "Scegli 5 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",
-    "promo2.feature1": "Integratore botanico che aiuta a proteggere la pelle dal sole.",
+    "promo2.desc": "Scegli 5 prodotti dalla nostra linea SunCare + Bronxe Prepare. Massima protezione e qualità Made in Italy.",    "promo2.note": "Offerta speciale valida fino al 28 maggio 2026",    "promo2.feature1": "Integratore botanico che aiuta a proteggere la pelle dal sole.",
     "promo2.feature2": "Per un'abbronzatura uniforme e contro l'invecchiamento della pelle.",
     "promo2.feature3": "E IN REGALO: BORSA DA SPIAGGIA + BORSA TERMICA",
     "promo2.btn": "Scopri di più",
-    "promo3.wow": "PROMO IN KOSOVO E MACEDONIA",
+    "promo3.ribbon": "PROMO IN TUTTA EUROPA ESCLUSO ALBANIA",
+    "promo3.wow": "SUPER PROMO OLIVOX",
     "promo3.title": "Olivox Special",
-    "promo3.desc": "Acquista 4 bottiglie di Olivox e ricevi in regalo le maschere Sincera. Fino al 28 maggio.",
-    "promo3.feature1": "Olivox - un integratore botanico liquido.",
-    "promo3.feature2": "Aiuta a eliminare il gonfiore.",
-    "promo3.feature3": "Migliora la digestione e purifica l'organismo.",
+    "promo3.desc": "Raddoppia OLIVOX... e ricevi in regalo le maschere per il viso.<br><br>Una promo pensata per il tuo benessere, dentro e fuori.<br><br>Solo per un periodo limitato, fino al 31 maggio 2026.",
+    "promo3.note": "Offerta speciale valida fino al 31 maggio 2026",
+    "promo3.feature1": "un integratore erboristico liquido",
+    "promo3.feature2": "aiuta a eliminare il gonfiore",
+    "promo3.feature3": "migliora la digestione",
+    "promo3.feature4": "purifica l'organismo",
+
     "promo3.btn": "Scopri di più",
     "footer.tag": "La tua soluzione per il benessere",
     "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
@@ -555,10 +611,11 @@ const T = {
     "cta.btn1": "💬 Contact on WhatsApp",
     "cta.btn2": "🛍️ View Catalog",
     "promo.section": "CURRENT PROMO",
-    "promo.note": "Special offer until 28 May 2026",
+    "promo.note": "Special offer: first 2 promos until 28 May 2026, third promo until 31 May 2026",
     "promo1.wow": "SUPER SUNCARE PROMO",
     "promo1.title": "Light Kit",
     "promo1.desc": "Choose 3 products from our SunCare line + Bronxe Prepare. Maximum protection and Made in Italy quality.",
+    "promo1.note": "Special offer valid until 28 May 2026",
     "promo1.feature1": "Herbal supplement that helps protect skin from the sun.",
     "promo1.feature2": "For an even tan and to fight skin aging.",
     "promo1.feature3": "AND FREE: SUNCARE BEACH BAG",
@@ -566,16 +623,21 @@ const T = {
     "promo2.wow": "SUPER SUNCARE PROMO",
     "promo2.title": "Big Kit",
     "promo2.desc": "Choose 5 products from our SunCare line + Bronxe Prepare. Maximum protection and Made in Italy quality.",
+    "promo2.note": "Special offer valid until 28 May 2026",
     "promo2.feature1": "Herbal supplement that helps protect skin from the sun.",
     "promo2.feature2": "For an even tan and to fight skin aging.",
     "promo2.feature3": "AND FREE: BEACH BAG + THERMAL BAG",
     "promo2.btn": "Learn more",
-    "promo3.wow": "PROMO IN KOSOVO AND MACEDONIA",
+    "promo3.ribbon": "PROMO IN ALL EUROPE EXCEPT ALBANIA",
+    "promo3.wow": "SUPER PROMO OLIVOX",
     "promo3.title": "Olivox Special",
-    "promo3.desc": "Buy 4 bottles of Olivox and get Sincera masks free. Valid until May 28.",
-    "promo3.feature1": "Olivox - a liquid herbal supplement.",
-    "promo3.feature2": "Helps reduce bloating.",
-    "promo3.feature3": "Improves digestion and cleanses the body.",
+    "promo3.desc": "Double OLIVOX... and get free face masks.<br><br>A promo designed for your wellbeing, inside and out.<br><br>Only for a limited time, until May 31, 2026.",
+    "promo3.note": "Special offer valid until 31 May 2026",
+    "promo3.feature1": "a liquid herbal supplement",
+    "promo3.feature2": "helps eliminate bloating",
+    "promo3.feature3": "improves digestion",
+    "promo3.feature4": "cleanses the body",
+
     "promo3.btn": "Learn more",
     "footer.tag": "Your solution for wellness",
     "footer.copy": "© 2026 Roala Kodheli · Distributrice Autorizzata Snep S.p.A."
@@ -675,5 +737,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script src="editor.js"></script>
+  <div class="page-view-badge" data-page-key="produktet">Caricamento visualizzazioni...</div>
+  <script src="visitor-counter.js"></script>
 </body>
 </html>

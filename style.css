@@ -558,6 +558,25 @@ a { text-decoration: none; color: inherit; }
 }
 .author-info { font-size: 0.8rem; color: var(--text-muted); }
 
+..page-view-badge {
+  display: none;
+  position: fixed;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 9999;
+  padding: 0.85rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #3b0a3f;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 93, 150, 0.15);
+}
+.page-view-badge::before {
+  content: '👁️ ';
+  margin-right: 0.35rem;
+}
 /* =====================================================
    ABOUT SNEP SECTION
    ===================================================== */
